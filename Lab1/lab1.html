@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../source/css/style.css">
+    <title>Лабораторная робота №1</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+      <div class="container">
+        <div class="header_inner">
+          <div class="dropup">
+             <button class="dropbtn"><b>Содержание</b></button>
+             <div class="dropup-content">
+               <a href="#object_window">Объект Window</a>
+               <a href="#method_open">Метод open()</a>
+               <a href="#method_close">Метод close()</a>
+               <a href="#method_print">Метод print()</a>
+               <a href="#table_met">Таблица методов</a>
+               <a href="#property_name">Свойство name</a>
+               <a href="#property_opener">Свойство opener</a>
+               <a href="#property_closed">Свойство closed</a>
+               <a href="#table_ope">Таблица свойств</a>
+               <a href="#practice">Практика</a>
+             </div>
+           </div>
+
+          <a href="../index.html" title="Главная страница"><div class="logo_link">
+          </div></a>
+
+          <div class="right_menu">
+            <div class="list_lab">
+            <a href="../Lab1/lab1.html" id="menu_enable"><b>1</b></a>
+            <a href="../Lab2/lab2.html"><b>2</b></a>
+            <a href="../Lab3/lab3.html"><b>3</b></a>
+            <a href="../Lab4/lab4.html"><b>4</b></a>
+            <a href="../Lab5/lab5.html"><b>5</b></a>
+          </div>
+          <a href="../Info/info.html" class="link_img"></a>
+          </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+      </div>
+    </header>
+
+  <div class="container_color">
+
+    <h1 align="center" id="object_window">Объект Window</h1>
+    <div class="indentation">
+    <p>В браузерах роль глобального объекта играет объект Window.
+    К нему нельзя обратиться напрямую, однако он имеет свойство window, ссылающееся на сам объект,
+    которое можно использовать вместо ключевого слова this для ссылки на глобальный объект.
+    Все переменные и функции, объявленные глобально, становятся его свойствами и методами:</p>
+    <p class="ex">
+      var num = 15; <br>
+      function sayNum() { <br>
+      alert(this.num);} <br>
+      alert(window.num);  // 15 <br>
+      sayNum();           // 15 <br>
+      window.sayNum();    // 15 <br>
+    </p>
+    <p>Несмотря на то что глобальные переменные становятся свойствами объекта Window,
+      между ними и объявленными свойствами непосредственно для объекта Window есть небольшое различие.
+      Глобальные переменные нельзя удалить с помощью оператора delete,
+      а свойства, определённые непосредственно для объекта Window, можно:
+    </p>
+    <p class="ex">
+      var num = 10; <br>
+      window.num2 = 15; <br>
+      delete window.num;     // false <br>
+      delete window.num2;    // true <br>
+      alert(window.num);     // 10 <br>
+      alert(window.num2);    // undefined <br>
+    </p>
+    <p>Таким образом, добавление свойства непосредственно для объекта Window равносильно созданию глобальной переменной без ключевого слова var.</p>
+    <p>У свойств, добавленных в JavaScript к объекту Window с помощью ключевого слова var,
+      атрибут [[Configurable]] имеет значение false, поэтому их нельзя удалить, используя оператор delete.</p>
+
+      <h1 align="center">Основные методы</h1> <br>
+      <h2 align="center" id="method_open">Метод open()</h2>
+      <p>Он предназначен для открытия нового окна (вкладки) в браузере и имеет следующий синтаксис:</p>
+      <img src="../source/image/window_open.png" class="img_centre">
+      <p>Параметры метода:</p>
+      <ul>
+        <li>В первом параметре указывается URL страницы, которую необходимо загрузить в это окно.
+          Если значение данного параметра не задавать, то в окне будет отображена пустая страница (about:blank).</li>
+        <li>Во втором параметре метода open указывается значение атрибута target или имя окна.
+             Поддерживаются следующие значения:</li>
+             <div class="subparagraphs">
+               <li>_blank - URL загружается в новое окно (вкладку). Это значение используется по умолчанию;</li>
+               <li>_parent - URL загружается в родительский фрейм. Если его нет, то URL загружается в текущее окно (вкладку);</li>
+               <li>_self - URL загружается в текущее окно;</li>
+               <li>_top - отменяет все фреймы и загружает URL в текущее окно (вкладку) браузера. Если его нет, то URL загружается в текущее окно (вкладку);</li>
+               <li>В качестве параметра Вы также можете указать имя открываемого окна.
+                 Данное имя является внутренним и может использоваться веб-разработчиками для вызова функций и методов этого окна.</li>
+             </div>
+        <li>Третий параметр предназначен для указания набора свойств окна, которые вводятся через запятую. Поддерживаются следующие основные свойства окна:</li>
+        <div class="subparagraphs">
+        <li>left, top - координаты (в пикселях) левого верхнего угла окна браузера относительно левого верхнего угла экрана.
+          Значения этих свойств должны быть положительными или равными 0;</li>
+        <li>height, width — высота и ширина рабочей области окна браузера.
+            При указании значений необходимо учитывать, что ширина и высота окна браузера не может быть меньше 100 пикселей;</li>
+        <li>resizable — логическое свойство окна, которое предназначено для включения или выключения возможности изменения размеров окна браузера.
+               Данное свойство принимает следующие значения: yes или 1, и no или 0;</li>
+        <li>scrollbars - логическое свойство окна, которое предназначено для включения или выключения отображение полос прокрутки для содержимого окна браузера.
+               Данное свойство принимает следующие значения: yes или 1, и no или 0;</li>
+        </div>
+      </ul>
+      <p>Рассмотрим следующий примеры:</p>
+      <ol>
+        <li>
+          Открыть пустую страницу about:blank в новом окне. Данное окно должно иметь ширину и высоту, равную 250рх:</li>
+          <p class="ex">
+            window.open("","","width=250,height=250"); <br>
+          </p>
+            <button type="button" name="button" onclick="Example_1()">Пример №1</button>
+            <script>
+            function Example_1(){
+              window.open("","","width=250,height=250");
+            }</script>
+
+        <li>Открыть веб-страницу "https://www.google.com.ua" в текущем окне:</li>
+        <p class="ex">
+          window.open("https://www.google.com.ua", "_self"); <br>
+        </p>
+          <button type="button" name="button" onclick="Example_2()">Пример №2</button>
+          <script>
+          function Example_2(){
+            window.open("https://www.google.com.ua", "_self");
+          }</script>
+
+        <li>Открыть новое окно, имеющее определённые свойства (top=100, left=100, width=400, height=500, scrollbars=yes, resizabie=yes):</li>
+        <p class="ex">
+          window.open("https://www.google.com.ua", "_blank", "top=100, left=100, width=400, height=500, scrollbars=yes, resizable=yes"); <br>
+        </p>
+          <button type="button" name="button" onclick="Example_3()">Пример №3</button>
+          <script>
+          function Example_3(){
+            window.open("https://www.google.com.ua", "_blank", "top=100, left=100, width=400, height=500, scrollbars=yes, resizable=yes");
+          }</script>
+      </ol>
+
+      <h2 align="center" id="method_close">Метод close()</h2>
+      <p>Он предназначен для закрытия окна. Данный метод не имеет параметров. Он обычно используется для закрытия окон созданных методом open().
+        В противном случае, когда Вы попытаетесь закрыть окно (вкладку), открытое самим пользователем (не из JavaScript),
+        то браузер из-за соображений безопасности запросит у пользователя подтверждение на выполнение этого действия.</p>
+      <p>Например, cоздадим кнопки для открытия и закрытия окна с именем myWindow:</p>
+      <p class="ex">
+        var myWindow; <br>
+        function myWindowOpen() { <br>
+             myWindow = window.open("https://www.google.com.ua", "myWindow", "width=400, height=400");} <br>
+        function myWindowClose() { <br>
+             if (myWindow) { <br>
+             myWindow.close(); <br>
+             myWindow = null;}} <br>
+      </p>
+      <button onClick="myWindowOpen()">Oткрыть oкно</button>
+      <button onClick="myWindowClose()">Закрыть окно</button>
+
+      <script>
+      var myWindow;
+      function myWindowOpen() {
+           myWindow = window.open("https://www.google.com.ua", "myWindow", "width=400, height=400");}
+      function myWindowClose() {
+           if (myWindow) {
+           myWindow.close();
+           myWindow = null;}}
+      </script>
+
+      <h2 align="center" id="method_print">Метод print()</h2>
+      <p>Он предназначен для печати содержимого окна. Данный метод не имеет параметров. Пример:</p>
+      <p class="ex">
+        function myPrint() { <br>
+        window.print();} <br>
+      </p>
+      <button onclick="myPrint()">Печать страницы</button>
+      <script>
+      function myPrint() {
+      window.print();}
+      </script>
+      <h2 align="center" id="table_met">Таблица методов</h2> <br>
+      <table border="1">
+        <tr>
+          <th>Метод</th>
+          <th>Описание</th>
+        </tr>
+        <tr>
+          <td>alert()</td>
+          <td>Выводит модальное диалоговое окно с сообщением и кнопкой OK.</td>
+        </tr>
+        <tr>
+          <td>atob()</td>
+          <td>Декодирует строку данных, которая была закодирована с использованием кодировки base-64.</td>
+        </tr>
+        <tr>
+          <td>btoa()</td>
+          <td>Создает строку ASCII в кодировке base-64 из строки бинарных данных.</td>
+        </tr>
+        <tr>
+          <td>clearInterval()</td>
+          <td>Отменяет выполнение действий, заданных с помощью метода setInterval().</td>
+        </tr>
+        <tr>
+          <td>clearTimeout()</td>
+          <td>Отменяет выполнение действий, заданных с помощью метода setTimeout().</td>
+        </tr>
+        <tr>
+          <td>close()</td>
+          <td>Закрывает окно, которое было открыто с помощью метода window.open().</td>
+        </tr>
+        <tr>
+          <td>confirm()</td>
+          <td>Отображает модальное диалоговое окно, содержащее сообщение и кнопки ОК и Отмена.</td>
+        </tr>
+        <tr>
+          <td>focus()</td>
+          <td>Устанавливает фокус на текущее окно.</td>
+        </tr>
+        <tr>
+          <td>moveBy()</td>
+          <td>Перемещает текущее окно на заданную величину.</td>
+        </tr>
+        <tr>
+          <td>moveTo()</td>
+          <td>Перемещает окно в соответствии с указанными координатами.</td>
+        </tr>
+        <tr>
+          <td>open()</td>
+          <td>Создает и открывает новое окно.</td>
+        </tr>
+        <tr>
+          <td>print()</td>
+          <td>Печатает содержимое текущего окна.</td>
+        </tr>
+        <tr>
+          <td>prompt()</td>
+          <td>Отображает диалоговое окно с сообщением и полем ввода для пользователя. Возвращает строку, содержащую введенные данные.</td>
+        </tr>
+        <tr>
+          <td>resizeBy()</td>
+          <td>Изменяет текущее окно на определенную величину.</td>
+        </tr>
+        <tr>
+          <td>resizeTo()</td>
+          <td>Изменяет размер окна до указанной ширины и высоты.</td>
+        </tr>
+        <tr>
+          <td>scrollBy()</td>
+          <td>Прокрутка документа в окне на указанное количество пикселей.</td>
+        </tr>
+        <tr>
+          <td>scrollTo()</td>
+          <td>Прокрутка документа до указанных координат.</td>
+        </tr>
+        <tr>
+          <td>setInterval()</td>
+          <td>Вызывает функцию или вычисляет выражение в определенные промежутки времени (в миллисекундах).</td>
+        </tr>
+        <tr>
+          <td>setTimeout()</td>
+          <td>Вызывает функцию или вычисляет выражение после указанного числа миллисекунд.</td>
+        </tr>
+        <tr>
+          <td>stop()</td>
+          <td>Останавливает загрузку окна.</td>
+        </tr>
+      </table>
+
+      <h1 align="center">Свойства объекта</h1> <br>
+      <h2 align="center" id="property_name">Свойство name</h2>
+      <p>Данное свойство очень часто используется для изменения внутреннего имени окна,
+        после того как оно уже открыто. Кроме этого, свойство name может вернуть текущее значение внутреннего имени окна.</p>
+      <p>Внутреннее имя окна, это не строка,
+          заключённая между открывающим и закрывающим тегом title - это имя окна которое предназначено для разработчика. Т.е. данное имя невидимо для пользователя.</p>
+      <p>Данное имя в основном используется в гиперссылках и формах для указания окна, в котором необходимо открыть страницу. Например, для указания внутреннего имя окна в гиперссылке используется атрибут target, Если элемент а имеет атрибут target="searchWindow", то при нажатии на данную ссылку браузер сначала пытается найти окно с таким внутренним именем (searchWindow), если окна с таким внутренним именем не существует, то он открывает новое окно и присваивает ему имя searchWindow. А если окно с таким именем существует, то новое окно не открывается, а перезагружается страница по указанной ссылке а этом окне.
+        По умолчанию окна а браузере не имеют внутреннего имени.</p>
+        Например, откроем окно с помощью метода open() и выведем в нём его имя: <br>
+        <p class="ex">
+          var wnd = window.open("","myTest","width=200, height=300"); <br>
+          wnd.document.write("Это окно имеет имя:" + wnd.name"); <br>
+        </p>
+
+        <button onclick="Example_4()">Пример №4</button> <br>
+        <script>
+        function Example_4(){
+          var wnd = window.open("","myTest","width=200, height=300");
+          wnd.document.write("<p>Это окно имеет имя:" + wnd.name +".</р>");}
+        </script>
+
+        Откроем страницу "http://www.google.com/" в окне, имеющем имя myWindow: <br>
+        <p class="ex">
+          window.name = "myWindow"; <br>
+          <а href="http://www.google.com/" target="myWindow"></a> <br>
+        </p>
+        <button onclick="Example_5()">Пример №5</button>
+        <script>
+        function Example_5(){
+          window.open("","myWindows","width=250,height=250");}
+        </script>
+        <a href="http://www.google.com/" target="myWindows" class="url">Ссылка</a>
+        <h2 align="center" id="property_opener">Свойство opener</h2>
+        <p>Данное свойство позволяет получить в окне, ссылку на исходное окно (объект window), т.е. на окно из которого было открыто данное окно.</p>
+        <p>Например, у Вас есть исходное окно (1), в котором вы с помощью метода ореn() открываете другое окно (2).
+          В этом окне (2) Вы можете с помощью свойства opener получить окно (1).</p>
+          <img src="../source/image/opener.png" class="img_centre"> <br>
+          Пример: <br>
+           <p class="ex">
+          function openMyWindow(){ <br>
+          var myWindow=window.open("","","width=200,height=200"); <br>
+          myWindow.document.write("&lt;h1&gt;Oткрытое окно (2)&lt;/h1&gt;"); <br>
+          myWindow.opener.document.write("<hl>Это исходное окно(1), с помощью которого мы открыли окно (2)</h1>");} <br>
+          </p>
+          Для возрашения на страницу практикума после перехода по ссылке просто обновите страницу исходного окна <br>
+          <a href="javascript:openMyWindow()" class="url">Открыть окно</a>
+          <script>
+          function openMyWindow(){
+          var myWindow=window.open("","","width=200,height=200");
+          myWindow.document.write("<h1>Oткрытое окно (2)</h1>");
+          myWindow.opener.document.write("<hl>Это исходное окно(1), с помощью которого мы открыли окно (2)</h1>");}
+          </script>
+          <h2 align="center" id="property_closed">Свойство closed</h2>
+          <p>Свойство closed возвращает логическое значение, указывающее закрыто окно или нет.</p>
+          Пример: <br>
+          <p class="ex">
+            var myTestWindow; <br>
+            function openWindow() { <br>
+            myTestWindow = window.open ("","" ,"left=200,top=250,width=250,height=250");} <br>
+            function closeWindow() { <br>
+            if (myTestWindow) { <br>
+            myTestWindow.close();}} <br>
+            function stateWindow() { <br>
+            if (!myTestWindow) { <br>
+            alert("Окно не открыто");  } <br>
+            else { <br>
+            if (myTestWindow.closed) <br>
+            alert ("Окно закрыто"); <br>
+            else <br>
+            alert ("Окно открыто");}} <br>
+          </p>
+          <button onclick="openWindow()">Oткрыть окно</button>
+          <button onclick="closeWindow()">3акрыть окно</button>
+          <button onclick="stateWindow()">Cocтояние окна</button>
+          <script>
+           var myTestWindow;
+           function openWindow() {
+           myTestWindow = window.open ("","" ,"left=200,top=250,width=250,height=250");}
+           function closeWindow() {
+           if (myTestWindow) {
+          myTestWindow.close();}}
+          function stateWindow() {
+          if (!myTestWindow) {
+          alert("Окно не открыто");  }
+          else {
+          if (myTestWindow.closed)
+          alert ("Окно закрыто");
+          else
+          alert ("Окно открыто");}}
+         </script>
+         <h2 align="center" id="table_ope">Таблица свойств</h2> <br>
+         <table border="1">
+           <tr>
+             <th>Свойство</th>
+             <th>Описание</th>
+           </tr>
+           <tr>
+             <td>closed</td>
+             <td>Возвращает логическое значение, указывающее закрыто окно или открыто.</td>
+           </tr>
+           <tr>
+             <td>document</td>
+             <td>Возвращает объект Document текущего окна.</td>
+           </tr>
+           <tr>
+             <td>frames</td>
+             <td>Возвращает массив со всеми элементами &lt;iframe&gt; текущего окна.</td>
+           </tr>
+           <tr>
+             <td>history</td>
+             <td>Возвращает ссылку на объект History.</td>
+           </tr>
+           <tr>
+             <td>innerHeight</td>
+             <td>Возвращает высоту области просмотра окна.</td>
+           </tr>
+           <tr>
+             <td>innerWidth</td>
+             <td>Возвращает ширину области просмотра окна.</td>
+           </tr>
+           <tr>
+             <td>lenght</td>
+             <td>Возвращает количество &lt;iframe&gt; элементов в окне.</td>
+           </tr>
+           <tr>
+             <td>location</td>
+             <td>Возвращает ссылку на объект Location.</td>
+           </tr>
+           <tr>
+             <td>name</td>
+             <td>Задает или получает значение, указывающее имя окна.</td>
+           </tr>
+           <tr>
+             <td>navigator</td>
+             <td>Возвращает ссылку на объект Navigator.</td>
+           </tr>
+           <tr>
+             <td>opener</td>
+             <td>Задает или получает ссылку на окно, которое было создано в текущем окне.</td>
+           </tr>
+           <tr>
+             <td>outerHeight</td>
+             <td>Возвращает внешнюю высоту окна, включая панели инструментов и полосы прокрутки.</td>
+           </tr>
+           <tr>
+             <td>outerWidth</td>
+             <td>Возвращает внешнюю ширину окна, включая панели инструментов и полосы прокрутки.</td>
+           </tr>
+           <tr>
+             <td>pageXOffset</td>
+             <td>Возвращает количество пикселей, на которое текущий документ был прокручен (по горизонтали) от верхнего левого угла окна.</td>
+           </tr>
+           <tr>
+             <td>pageYOffset</td>
+             <td>Возвращает количество пикселей, на которое текущий документ был прокручен (по вертикали) от верхнего левого угла окна.</td>
+           </tr>
+           <tr>
+             <td>parent</td>
+             <td>Возвращает родительское окно текущего окна.</td>
+           </tr>
+           <tr>
+             <td>screen</td>
+             <td>Возвращает ссылку на объект Screen, связанный с окном.</td>
+           </tr>
+           <tr>
+             <td>screenLeft</td>
+             <td>Получает x-координату верхнего левого угла окна относительно верхнего левого угла экрана.</td>
+           </tr>
+           <tr>
+             <td>screenTop</td>
+             <td>Получает y-координату верхнего угла окна, по отношению к верхней части экрана.</td>
+           </tr>
+           <tr>
+             <td>scrollX</td>
+             <td>Эквивалент свойства pageXOffset.</td>
+           </tr>
+           <tr>
+             <td>scrollY</td>
+             <td>Эквивалент свойства pageYOffset.</td>
+           </tr>
+           <tr>
+             <td>self</td>
+             <td>Извлекает ссылку на текущее окно или фрейм.</td>
+           </tr>
+           <tr>
+             <td>status</td>
+             <td>Получает/устанавливает текст в строке состояния в нижней части браузера.</td>
+           </tr>
+         </table>
+
+       <hr>
+       <h1 align="center" id="practice">ПРАКТИКА</h1>
+       <hr>
+
+    </div>
+    </div>
+
+    <div class="container">
+     <div class="footer">
+     <div class="organization">Dnipro National University | Laboratory Workshop &copy; 2020
+     </div>
+     <div class="author"> Designed by Andriy Demchenko
+     </div>
+    </div>
+  </div>
+
+  </body>
+</html>
