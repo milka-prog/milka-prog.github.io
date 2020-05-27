@@ -15,9 +15,10 @@
           <div class="dropup">
              <button class="dropbtn"><b>Содержание</b></button>
              <div class="dropup-content">
-               <a href="#">Link 1</a>
-               <a href="#">Link 2</a>
-               <a href="#">Link 3</a>
+               <a href="#object_document">Объект Document</a>
+               <a href="#sv_document">Свойства объекта document</a>
+               <a href="#met_document">Методы объекта document</a>
+               <a href="#practice">Практика</a>
              </div>
            </div>
 
@@ -43,6 +44,215 @@
     </header>
 
   <div class="container_color">
+
+    <h1 align="center" id="object_document">Объект Document</h1>
+    <div class="indentation">
+      <p>Каждая веб-страница, загружаемая в браузере, имеет свой собственный объект Document.
+        Интерфейс объекта Document служит точкой доступа к содержимому веб-страницы (дерево DOM, включающее все элементы со всем их содержимым)
+        и предоставляет глобальную функциональность для документа ( например, получение URL-адреса страницы или создание новых элементов).
+      </p>
+      <p>Объект Document используется для получения, изменения или добавления содержимого в HTML-документ и для обработки событий в этом документе.</p>
+      <h2 align="center" id="sv_document">Свойства объекта document</h2>
+      <ul>
+        <li>Свойство document.implementation — возвращает объект DOMImplementation, ассоциированный с текущим документом.</li>
+        Например, определим, поддерживается ли указанная возможность в браузере: <br>
+        <p class="ex">
+          &lt;div id="docImplementation" class="alert alert-info"&gt;&lt;/div&gt; <br>
+          &lt;script&gt; <br>
+          var modName = "HTML"; <br>
+          var modVer = "2.0"; <br>
+          var checkFeature = document.implementation.hasFeature(modName,modVer); <br>
+          window.document.getElementById("docImplementation").innerHTML = "DOM " + modName + " " + modVer + " поддерживается? " + checkFeature; <br>
+         &lt;/script&gt; <br>
+        </p>
+        <button onclick="Example_1()">Пример №1</button>
+        <button onclick="reload()">Скрыть</button> <br>
+        <div id="docImplementation" class="alert alert-info"></div>
+        <script>
+        function Example_1(){
+        var modName = "HTML";
+        var modVer = "2.0";
+        var checkFeature = document.implementation.hasFeature(modName,modVer);
+        window.document.getElementById("docImplementation").innerHTML = "DOM " + modName + " " + modVer + " поддерживается? " + checkFeature;}
+        </script>
+        <script>
+        function reload(){
+        location.reload();}
+        </script>
+        <li>Свойство document.characterSet - возвращает кодировку, которая используется для рендеринга текущего документа.
+          Данное значение может отличаться от кодировки указанной в HTML странице, т.к. пользователь может её переопределить, т.е.
+          выбрать в соответствующем меню браузера другую кодировку, которая будет использоваться для отображения текущего документа.</li>
+          <p class="ex">
+            &lt;div id="docCharacterSet" class="alert alert-info"&gt;&lt;/div&gt; <br>
+            &lt;script&gt; <br>
+            var characterSet = document.characterSet; <br>
+            window.document.getElementById("docCharacterSet").innerHTML = "Кодировка, которая используется для текущего документа: " + characterSet; <br>
+           &lt;/script&gt; <br>
+          </p>
+          <button onclick="Example_2()">Пример №2</button>
+          <button onclick="reload()">Скрыть</button> <br>
+          <div id="docCharacterSet" class="alert alert-info"></div>
+          <script>
+          function Example_2(){
+          var characterSet = document.characterSet;
+          window.document.getElementById("docCharacterSet").innerHTML = "Кодировка, которая используется для текущего документа: " + characterSet;}
+          </script>
+          <li>Свойство document.inputEncoding - возвращает кодировку, которая использовалась во время синтаксического разбора (парсинга) документа.
+            Если документ создан в памяти, то данное свойство возвращает значение null. Данное свойство доступно только для чтения.</li>
+            <p class="ex">
+              &lt;id="docInputEncoding" class="alert alert-info"&gt;&lt;/div&gt; <br>
+              &lt;script&gt; <br>
+              var inputEncoding = document.inputEncoding; <br>
+              window.document.getElementById("docInputEncoding").innerHTML = "Кодировка документа: " + inputEncoding; <br>
+             &lt;/script&gt; <br>
+            </p>
+            <button onclick="Example_3()">Пример №3</button>
+            <button onclick="reload()">Скрыть</button> <br>
+            <div id="docInputEncoding" class="alert alert-info"></div>
+            <script>
+            function Example_3(){
+            var inputEncoding = document.inputEncoding;
+            window.document.getElementById("docInputEncoding").innerHTML = "Кодировка документа: " + inputEncoding;}
+            </script>
+            <li>Свойство document.lastModified - возвращает строку, содержащую дату и время последнего изменения текущего документа.
+              Gecko и Internet Explorer возвращают время в часовом поясе локального компьютера, WebKit - в UTC.</li>
+              <p class="ex">
+                alert(document.lastModified); <br>
+              </p>
+              <button onclick="Example_4()">Пример №4</button>
+              <script>
+                function Example_4(){
+                alert(document.lastModified);}
+              </script>
+              <li>Свойство document.readyState - возвращает строку, содержащую статус текущего документа. Данное свойство доступно только для чтения.
+                    В процессе загрузки документ последовательно проходит следующие состояния:</li>
+              <ol>
+              <li>uninitialized - процесс загрузки ещё не начался;</li>
+              <li>loading - идёт процесс загрузки;</li>
+              <li>loaded - загрузка HTML кода завершена;</li>
+              <li>interactive - документ достаточно загружен для того, чтобы пользователь мог взаимодействовать с ним. Код JavaScript может начать выполняться только на этом этапе;</li>
+              <li>complete - документ полностью загружен.</li>
+              </ol>
+              В большинстве случаев, код JavaScript обычно выполняется и вызывается после того, как документ полностью загружен, т.е. когда он находится в состоянии complete.
+              <p class="ex">
+                document.onreadystatechange = function () { <br>
+                if (document.readyState == "complete") { <br>
+               //выполнить код, после того как документ полностью загружен}} <br>
+              </p>
+              <li>Свойство document.referrer - возвращает строку, содержащую адрес (URL) страницы, с которой пользователь пришёл на эту страницу.
+              Если текущий документ не был открыт через ссылку (например, с помощью закладки или прямого ввода адреса в адресную строку), то данное свойство вернёт пустую строку.</li>
+              <p class="ex">
+                Например: Откройте новую вкладку и введите в адресной строке https://www.wikipedia.org/.
+                В открывшейся странице перейдите по любой ссылке. Откройте консоль в браузере (клавиша F12, вкладка "Консоль") и введите: document.referrer .
+              </p>
+             <img src="../source/image/primer1.png" class="img_centre">
+             <li>Свойство document.cookie - позволяет получить или установить cookie, которые будут связаны с текущим документом.</li>
+             <p class="ex">
+               Например, откроем новую вкладку в браузере и введём в адресную строку https://www.google.com.ua/ и нажмём на клавишу Enter. После этого перейдём в консоль и поработаем со свойством document.cookie: <br>
+
+                1)Выведем все cookie связанные с текущим документом, т.е. пары ключ=значение: document.cookie; <br>
+                2)Запишем новый cookie: document.cookie = "test1 = Test1"; <br>
+                3)Запишем ещё один новый cookie: document.cookie = "test2 = Test2"; <br>
+                4)Выведем все cookie связанные с текущим документом: document.cookie. <br>
+             </p>
+             <img src="../source/image/primer2.png" class="img_centre">
+             <li>Свойство document.URL - возвращает строку, содержащую полный URL адрес текущего HTML документа.</li>
+             <li>Свойство document.URI - позволяет получить или задать расположение (URI) документа.
+               Если документ был создан с помощью объекта DocumentImplementation или если он был не определён, то данное свойство возвращает значение null.
+               В отличие от свойства document.URL, свойство document.
+               URI может быть использовано для любых типов документов, в то время как URL можно использовать только для HTML документов.</li>
+               <li>Свойство document.domain - возвращает строку, содержащую доменное имя сервера, с которого загружен текущий документ.
+                 Если домен текущего документа не может быть определён, то данное свойство вернёт значение null.</li>
+                 Например: выведем значения свойств document.URL, document.URI, document.domain в элемент div с id="docInfo": <br>
+              <p class="ex">
+                &lt;div id="docInfo" class="alert alert-info"&gt;&lt;/div&gt; <br>
+                &lt;script&gt; <br>
+                var documentURL = document.URL; <br>
+                var documentURI = document.URI; <br>
+                var documentDomain = document.domain; <br>
+                var result = "URL: " + documentURL + "&lt;br&gt;";<br>
+                result += "URI: " + documentURI + "&lt;br&gt;"; <br>
+                result += "Домен: " + documentDomain; <br>
+                window.document.getElementById("docInfo").innerHTML = result; <br>
+                &lt;/script&gt;<br>
+              </p>
+              <button onclick="Example_5()">Пример №5</button>
+              <button onclick="reload()">Скрыть</button> <br>
+              <div id="docInfo" class="alert alert-info"></div>
+              <script>
+              function Example_5(){
+              var documentURL = document.URL;
+              var documentURI = document.URI;
+              var documentDomain = document.domain;
+              var result = "URL: " + documentURL + "<br>";
+              result += "URI: " + documentURI + "<br>";
+              result += "Домен: " + documentDomain;
+              window.document.getElementById("docInfo").innerHTML = result;}
+              </script>
+              </ul>
+
+              <h2 align="center" id="met_document">Методы объекта document</h2>
+              <ul>
+                <li>Метод document.write() - предназначен для вывода в документ строки, указанной в качестве параметра данного метода.
+                Если данный метод вызывается в процессе загрузки документа, то он выводит строку в текущем месте.
+                В том случае, если данный метод вызывается после загрузки документа, то он приводит к полной очистке этого документа и вывода строчки.
+                Это происходит, потому что после загрузки документа браузер уже полностью построил DOM и в документ уже нельзя внести изменения таким способом,
+                а только с помощью добавления узлов в объектную модель документа.</li>
+                Например, вывести строку "Hello world": <br>
+                <p class="ex">
+                  document.write("Hello world");<br>
+                </p>
+                <button onclick="Example_6()">Пример №6</button>
+                <div id="docInfo" class="alert alert-info"></div>
+                <script>
+                function Example_6(){
+                var wnd = window.open("","","width=250,height=250");
+                wnd.document.write("Hello world");}
+                </script>
+                <li>Метод document.writeln() - полностью аналогичен методу document.write() за тем исключением,
+                  что он добавляет символ перевода строки (\n) в конец строки, указанной в качестве параметра.</li>
+                  <li>Метод document.open() — открывает поток для вывода в текущий документ строк с помощью методов document.write() и document.writeln().
+                    Данный метод (document.open()) обычно применяется для формирования нового документа. Вызов данного метода в текущем документе приводит к его полной очистке.
+                    После того как документ открыт методом document.open() и сформирован с помощью методов document.write() и document.writeln(),
+                    его необходимо закрыть методом document.close().</li>
+                    <li>Метод document.close() - предназначен для закрытия потока, который Вы открыли с помощью метода document.open().</li>
+                    Например, сформируем документ в новом окне: <br>
+                    <p class="ex">
+                      &lt;script&gt; <br>
+                        function myNewWindow() { <br>
+                         var myWindow = window.open("","","width=400,height=500"); <br>
+                        myWindow.document.open(); <br>
+                        myWindow.document.write("&lt;html&gt;"); <br>
+                        myWindow.document.write("&lt;head&gt;"); <br>
+                        myWindow.document.write("&lt;title&gt;Новая страница&lt;/title&gt;"); <br>
+                        myWindow.document.write("&lt;/head&gt;"); <br>
+                        myWindow.document.write("&lt;body&gt;"); <br>
+                        myWindow.document.write("&lt;h1&gt;Документ сформирован с помощью метода document.write&lt;/h1&gt;"); <br>
+                        myWindow.document.write("&lt;/body&gt;"); <br>
+                        myWindow.document.write("&lt;/html&gt;");} <br>
+                        &lt;/script&gt; <br>
+                        &lt;a href="javascript:myNewWindow()"&gt;Открыть и сформировать новый документ&lt;/a&gt; <br>
+                    </p>
+                    <button onclick="Example_7()">Пример №7</button>
+                    <div id="docInfo" class="alert alert-info"></div>
+                    <script>
+                    function Example_7(){
+                      var myWindow = window.open("","","width=400,height=500");
+                      myWindow.document.open();
+                      myWindow.document.write("<html>");
+                      myWindow.document.write("<head>");
+                      myWindow.document.write("<title>Новая страница</title>");
+                      myWindow.document.write("</head>");
+                      myWindow.document.write("<body>");
+                      myWindow.document.write("<h1>Документ сформирован с помощью метода document.write</h1>");
+                      myWindow.document.write("</body>");
+                      myWindow.document.write("</html>");}
+                    </script>
+              </ul>
+              <hr>
+              <h1 align="center" id="practice">ПРАКТИКА</h1>
+              <hr>
+    </div>
     </div>
     <div class="container">
      <div class="footer">
