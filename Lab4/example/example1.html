@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 </head>
 <body>
 	<i id="info">Загрузка изображений...</i>
 	<br />
-    <img src="Lab1.jpg" name="picture" />
-    <br />
-    <a href="#" onclick="return nextImage()">Следующее изображение</a>
+	<img src="Lab1.jpg" name="picture" />
+	<br />
+	<a href="#" onclick="return nextImage()">Следующее изображение</a>
 
-    <script type="text/javascript">
+	<script type="text/javascript">
 		var currentImage = 0, count = 0;
-        var path = new Array("Lab1.jpg", "Lab2.jpg", "Lab3.jpg", "Lab4.jpg");
+		var path = new Array("Lab1.jpg", "Lab2.jpg", "Lab3.jpg", "Lab4.jpg");
 		var img = new Array ();
 
 		for (var i=0; i < path.length; i++) {
@@ -30,18 +30,18 @@
 
 		}
 
-        function nextImage() {
+		function nextImage() {
 			if (count != path.length) {
 				alert ("Дождитесь пожалуйста загрузки всех изображений!");
 				return;
 			}
-            currentImage++;
-            if (currentImage == path.length)
-                currentImage = 0;
-            document.images["picture"].src = img[currentImage].src;
-            return false;
-        }
-    </script>
-    <a href="../lab4.html">Вернуться обратно</a>
+			currentImage++;
+			if (currentImage == path.length)
+				currentImage = 0;
+			document.images["picture"].src = img[currentImage].src;
+			return false;
+		}
+	</script>
+	<a href="../lab4.html">Вернуться обратно</a>
 </body>
 </html>
