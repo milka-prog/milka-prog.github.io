@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../source/css/style.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Лабораторная робота №3</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="header_inner">
-      <div class="container">
-        <div class="header_inner">
-          <div class="dropup">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../source/css/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Лабораторная робота №3</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header_inner">
+        <div class="container">
+          <div class="header_inner">
+            <div class="dropup">
              <button class="dropbtn"><b>Содержание</b></button>
              <div class="dropup-content">
                <a href="#1">Объект Form</a>
@@ -28,434 +28,439 @@
              </div>
            </div>
 
-          <a href="../index.html" title="Главная страница"><div class="logo_link">
-          </div></a>
+           <a href="../index.html" title="Главная страница"><div class="logo_link">
+           </div></a>
 
-          <div class="right_menu">
+           <div class="right_menu">
             <div class="list_lab">
-            <a href="../Lab1/lab1.html"><b>1</b></a>
-            <a href="../Lab2/lab2.html"><b>2</b></a>
-            <a href="../Lab3/lab3.html" id="menu_enable"><b>3</b></a>
-            <a href="../Lab4/lab4.html"><b>4</b></a>
-            <a href="../Lab5/lab5.html"><b>5</b></a>
+              <a href="../Lab1/lab1.html"><b>1</b></a>
+              <a href="../Lab2/lab2.html"><b>2</b></a>
+              <a href="../Lab3/lab3.html" id="menu_enable"><b>3</b></a>
+              <a href="../Lab4/lab4.html"><b>4</b></a>
+              <a href="../Lab5/lab5.html"><b>5</b></a>
+            </div>
+            <a href="../Info/info.html" class="link_img"></a>
           </div>
-          <a href="../Info/info.html" class="link_img"></a>
-          </div>
-          </div>
-
         </div>
+
       </div>
-      </div>
-      </div>
-    </header>
-
-  <div class="container_color">
-    <div class="indentation">
-        <h1 align="center" id="1">Объект Form</h1>
-        <p>Сейчас мы поговорим о различных приемах работы сценариев JavaScript с HTML-формами.
-         Если в HTML-документе определена форма, то она доступна сценарию JavaScript как объект, входящий в объект document с именем, заданным атрибутом NAME тега FORM.</p>
-        <h2 align="center" id="2">Свойства Form</h2>
-        <p>Форма имеет два набора свойств, состав одного из которых фиксированный, а состав другого зависит от того, какие элементы определены в форме.</p>
-        Свойства первого набора <br>
-        <ul>
-          <li><b>action.</b>Значение атрибута ACTION тега FORM.</li>
-          <li><b>encoding.</b> Значение атрибута ENCTYPE тега FORM.</li>
-          <li><b>method.</b>Значение атрибута METHOD тега FORM.</li>
-          <li><b>target.</b>Значение атрибута TARGET тега FORM.</li>
-          <li><b>elements.</b>Массив всех элементов формы.</li>
-          <li><b>length.</b>Размер массива elements.</li>
-        </ul>
-        <p>Большинство свойств первого набора просто отражает значение соответствующих атрибутов тега FORM. Что же касается массива elements, то в нем находятся объекты, соответствующие элементам, определенным в форме. Эти объекты образуют второй набор свойств формы. Адресоваться к этим объектам можно как к элементам массива elements, причем первому элементу формы будет соответствовать элемент с индексом 0, второму - с индексом 1 и т.д. Однако удобнее обращаться к элементам формы по их именам, заданным атрибутом NAME.</p>
-
-        <h2 align="center">Элементы Form</h2>
-        <h3 align="center" id="3">Кнопки (BUTTON, RESET, SUBMIT)</h3>
-        Свойства:
-        <ul>
-          <li><b>name.</b>Имя объекта.</li>
-          <li><b>value.</b>Надпись на кнопке.</li>
-        </ul>
-        Метод:
-        <ul>
-          <li><b>click( ).</b>Вызов этого метода тождественен щелчку мышкой по кнопке.</li>
-        </ul>
-        Пример: <br>
-        <p class="ex">
-          &lt;html&gt;<br>
-          &lt;head&gt;<br>
-          &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
-          &lt;script&gt;<br>
-           function btnClick(){<br>
-            var Txt1 = "";<br>
-            var Txt2 = "";<br>
-            Txt1 = document.Test.bt.value;<br>
-            Txt2 = document.Test.bt.name;<br>
-            document.getElementById('ex1').innerHTML="&lt;HR&gt;"+
-                "Вы нажали кнопку: " + Txt1.bold() +
-                " с именем: "  + Txt2.bold() +"&lt;HR&gt;";}<br>
-          &lt;/script&gt;<br>
-          &lt;/head&gt;<br>
-          &lt;body&gt;<br>
-          &lt;H1>Нажатие кнопки&lt;/H1&gt;<br>
-          &lt;div id="ex1">&lt;/div&gt;<br>
-          &lt;FORM NAME="Test"&gt;<br>
-          &lt;INPUT TYPE="button" NAME="bt" VALUE="Щелкни здесь!" onClick="btnClick();"&gt;<br>
-          &lt;/FORM&gt;<br>
-          &lt;/body&gt;<br>
-          &lt;/html&gt;<br>
-        </p>
-        <a href="example/example1.html"><button>Пример №1</button></a>
-
-        <h3 align="center" id="4">Флажок (CHECKBOX)</h3>
-        Свойства:
-        <ul>
-          <li><b>name.</b>Имя объекта.</li>
-          <li><b>value.</b>Надпись на кнопке.</li>
-          <li><b>checked.</b>Состояние флажка: true - флажок установлен, false - флажок не установлен.</li>
-          <li><b>defaultChecked.</b>Отражает наличие атрибута CHECKED: true - есть, false - нет.</li>
-        </ul>
-        Метод:
-        <ul>
-          <li><b>click( ).</b>Вызов этого метода меняет состояние флажка.</li>
-        </ul>
-        Пример: <br>
-        <p class="ex">
-          &lt;html&gt;<br>
-          &lt;head&gt;<br>
-          &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
-          &lt;/head&gt;<br>
-          &lt;body&gt;<br>
-          &lt;H1&gt;Метод click флажка&lt;/H1&gt;<br>
-          &lt;FORM NAME="Test"&gt;<br>
-          Флажок &lt;INPUT TYPE="checkbox" NAME="ch"&gt;<br>
-          &lt;BR&gt;Состояние флажка можно изменить и этой кнопкой<br>
-          &lt;INPUT TYPE="button" VALUE="Смена состояния" onClick="document.Test.ch.click();"&gt;<br>
-          &lt;/FORM&gt;<br>
-          &lt;/body&gt;<br>
-          &lt;/html&gt;<br>
-        </p>
-        <a href="example/example2.html"><button>Пример №2</button></a>
-
-        <h3 align="center" id="5">Переключатель (RADIO)</h3>
-        Свойства:
-        <ul>
-          <li><b>name.</b>Имя объекта.</li>
-          <li><b>value.</b>Надпись на кнопке.</li>
-          <li><b>length.</b>Количество переключателей в группе.</li>
-          <li><b>checked.</b>Состояние флажка: true - флажок установлен, false - флажок не установлен.</li>
-          <li><b>defaultChecked.</b>Отражает наличие атрибута CHECKED: true - есть, false - нет.</li>
-        </ul>
-        Метод:
-        <ul>
-          <li><b>click( ).</b>Вызов этого метода включает переключатель.</li>
-        </ul>
-        <p>Так как группа переключателей имеет одно имя NAME, то к переключателям надо адресоваться как к элементам массива.</p>
-        Пример: <br>
-        <p class="ex">
-          &lt;html&gt;<br>
-          &lt;head&gt;<br>
-          &lt;meta http-equiv="Content-Type"  content="text/html; charset=utf-8"&gt;<br>
-          &lt;script&gt;<br>
-            function btnClick(){<br>
-            if(document.Test1.Sex[0].checked){<br>
-                document.Test1.Sex[1].click();<br>
-            }else{<br>
-                document.Test1.Sex[0].click();}}<br>
-           &lt;/script&gt;<br>
-           &lt;/head&gt;<br>
-           &lt;body&gt;<br>
-           &lt;H1&gt;Метод click группы переключателей&lt;/H1&gt;<br>
-           &lt;FORM NAME="Test1"&gt;<br>
-           &lt;INPUT TYPE="RADIO"  NAME="Sex" VALUE ="Man" CHECKED&gt;Мужской<br>
-           &lt;INPUT TYPE="RADIO"  NAME="Sex" VALUE ="Woman"&gt;Женский<br>
-           &lt;BR&gt;Состояние переключателей можно изменить и этой кнопкой<br>
-           &lt;INPUT TYPE="button" VALUE="Смена состояния" onClick="btnClick();"&gt;<br>
-           &lt;/FORM&gt;<br>
-           &lt;/body&gt;<br>
-           &lt;/html&gt;<br>
-        </p>
-        <a href="example/example3.html"><button>Пример №3</button></a>
-
-        <h3 align="center" id="6">Список (SELECT)</h3>
-        Свойства:
-        <ul>
-          <li><b>name.</b>Имя объекта.</li>
-          <li><b>selectedIndex.</b>Номер выбранного элемента или первого среди выбранных (если указан атрибут MULTIPLE).</li>
-          <li><b>length.</b>Количество элементов (строк) в списке.</li>
-          <li><b>options.</b>Массив элементов списка, заданных тегами OPTION.</li>
-        </ul>
-        Каждый элемент массива options является объектом со следующими свойствами: <br>
-        <ul>
-          <li><b>value.</b>Значение атрибута VALUE.</li>
-          <li><b>text.</b>Текст, указанный после тега OPTION.</li>
-          <li><b>index.</b>Индекс элемента списка.</li>
-          <li><b>selected.</b>Присвоив этому свойству значение true, можно выбрать данный элемент.</li>
-          <li><b>defaultSelected.</b>Отражает наличие атрибута SELECTED: true - есть, false - нет.</li>
-        </ul>
-        Методы:
-        <ul>
-          <li><b>focus( ).</b>Передает списку фокус ввода.</li>
-          <li><b>blur( ).</b>Отбирает у списка фокус ввода.</li>
-        </ul>
-        Пример: <br>
-        <p class="ex">
-          &lt;html&gt;<br>
-          &lt;head&gt;<br>
-          &lt;meta http-equiv=Content-Type content="text/html;charset=utf-8"&gt;<br>
-          &lt;script&gt;<br>
-          function btnClick2(){<br>
-            var sI=document.Test2.Item.selectedIndex;<br>
-            var Txt="";<br>
-            Txt="Предложено "+document.Test2.Item.length+" напитков"+<br>
-                "\nВыбран "+document.Test2.Item.options[sI].text+<br>
-                " (value= "+document.Test2.Item.options[sI].value+<br>
-                ", index= "+document.Test2.Item.options[sI].index+")";<br>
-            if(document.Test2.Item.options[sI].defaultSelected)<br>
-                {Txt+="\nЭтот напиток выбирается по умолчанию";}<br>
-                alert(Txt);}<br>
-           &lt;/script&gt;<br>
-           &lt;/head&gt;<br>
-           &lt;body&gt;<br>
-           &lt;H1&gt;Работа с готовым списком&lt;/H1&gt;<br>
-           &lt;FORM NAME="Test2"&gt;<br>
-           &lt;SELECT NAME="Item" SIZE=5&gt;<br>
-           &lt;OPTION VALUE="tea" SELECTED&gt;Чай<br>
-           &lt;OPTION VALUE ="coffee"&gt;Кофе<br>
-           &lt;OPTION VALUE ="milk"&gt;Молоко<br>
-           &lt;OPTION VALUE ="cocoa"&gt;Какао<br>
-           &lt;OPTION VALUE ="juice"&gt;Сок<br>
-           &lt;/SELECT&gt;<br>
-           &lt;INPUT TYPE="button" VALUE="Пусть кофе" onClick="Test2.Item.options[1].selected=true;"&gt;<br>
-           &lt;INPUT TYPE="button" VALUE="Посмотрим" onClick="btnClick2();"&gt;<br>
-           &lt;/FORM&gt;<br>
-           &lt;/body&gt;<br>
-           &lt;/html&gt;<br>
-        </p>
-        <a href="example/example4.html"><button>Пример №4</button></a>
-        <p>Кроме работы с готовыми списками JavaScript может заполнять список динамически.
-          Для записи нового элемента списка используется конструктор Option c четырьмя параметрами, первый из которых задает текст, отображаемый в списке,
-          второй - значение элемента списка, соответствующее значению атрибута VALUE, третий соответствует свойству defaultSelected, четвертый - свойству selected.</p>
-          Пример: <br>
-          <p class="ex">
-            &lt;html&gt;<br>
-            &lt;head&gt;<br>
-            &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
-            &lt;/head&gt;<br>
-            &lt;body&gt;<br>
-            &lt;H1&gt;Динамическое заполнение списка&lt;/H1&gt;<br>
-            &lt;FORM NAME="Sel"&gt;<br>
-            &lt;SELECT NAME="ListOfLinks"&gt;<br>
-            &lt;/SELECT&gt;<br>
-            &lt;INPUT TYPE="button" VALUE="Переход" onClick="window.location.href=document.links[Sel.ListOfLinks.selectedIndex];"&gt;<br>
-            &lt;/FORM&gt;<br>
-            &lt;A HREF="https://www.youtube.com/"&gt;&lt;/A&gt;<br>
-            &lt;A HREF="https://www.google.com.ua/"&gt;&lt;/A&gt;<br>
-            &lt;A HREF="https://mail.google.com/"&gt;&lt;/A&gt;<br>
-            &lt;A HREF="https://www.apple.com/"&gt;&lt;/A&gt;<br>
-            &lt;script&gt;<br>
-            for(i=0; i&lt;document.links.length; i++)<br>
-            {document.Sel.ListOfLinks.options[i] = new Option(document.links[i], i, false, false);}<br>
-            document.Sel.ListOfLinks.selectedIndex = 0;<br>
-            &lt;/script&gt;<br>
-            &lt;/body&gt;<br>
-            &lt;/html&gt;<br>
-          </p>
-          <a href="example/example5.html"><button>Пример №5</button></a>
-
-          <h3 align="center" id="7">Поле ввода (TEXT)</h3>
-          Свойства:
-          <ul>
-            <li><b>name.</b>Имя объекта.</li>
-            <li><b>defaultValue.</b>Начальное содержимое поля.</li>
-            <li><b>value.</b>Текущее содержимое поля.</li>
-          </ul>
-          Методы:
-          <ul>
-            <li><b>focus( ).</b>Передает полю фокус ввода.</li>
-            <li><b>blur( ).</b>Отбирает у поля фокус ввода.</li>
-            <li><b>select( ).</b> Выделяет содержимое поля.</li>
-          </ul>
-          Пример: <br>
-          <p class="ex">
-            &lt;html&gt;<br>
-            &lt;head&gt;<br>
-            &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
-            &lt;script&gt;<br>
-            function Complete(){<br>
-            var Elem="Фамилия: " + document.Sel1.Family.value +<br>
-                "\nИмя: " + document.Sel1.Name.value +<br>
-                "\nВозраст: " + document.Sel1.Age.value +<br>
-                "\nТелефон: " + document.Sel1.Phone.value;<br>
-            alert(Elem);}<br>
-           function CheckAge(age){<br>
-            if(age&lt;18)<br>
-                return "18";<br>
-            else<br>
-                return  age;}<br>
-           &lt;/script&gt;<br>
-           &lt;/head&gt;<br>
-           &lt;body&gt;<br>
-           &lt;H1&gt;Заполните анкету&lt;/H1&gt;<br>
-           &lt;FORM NAME="Sel1"&gt;<br>
-        &lt;TABLE&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Фамилия:&lt;B>&lt;/TD&gt;<br>
-            &lt;TD&gt;&lt;INPUT NAME="Family" SIZE=20<br>
-                  onBlur="this.value=this.value.toUpperCase()">&lt;/TD&gt;&lt;/TR&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Имя:&lt;B&gt;&lt;/TD&gt;<br>
-            &lt;TD&gt;&lt;INPUT NAME="Name" SIZE=20<br>
-                  onBlur="this.value=this.value.toUpperCase()"&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Возраст:&lt;B&gt;&lt;/TD&gt;<br>
-            &lt;TD>&lt;INPUT NAME="Age" SIZE=3 VALUE="18"<br>
-                  onBlur="this.value=CheckAge(this.value)"<br>
-                  onFocus="this.select()">&lt;/TD&gt;&lt;/TR&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Телефон:&lt;B&gt;&lt;/TD&gt;<br>
-            &lt;TD&gt;&lt;INPUT NAME="Phone" SIZE=10&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
-        &lt;/TABLE&gt;<br>
-        &lt;INPUT TYPE="button" VALUE="Готово" onClick="Complete();"&gt;<br>
-        &lt;INPUT TYPE="reset" VALUE="Сброс"&gt;<br>
-        &lt;/FORM&gt;<br>
-        &lt;/body&gt;<br>
-        &lt;/html&gt;<br>
-          </p>
-          <a href="example/example6.html"><button>Пример №6</button></a>
-          <p>Обратите внимание на то, что символы фамилии и имени при потере фокуса соответствующими полями преобразуются в прописные.
-            Для этого используется метод toUpperCase, определенный во встроенном классе строк.</p>
-
-            <h3 align="center" id="8">Текстовая область (TEXTAREA)</h3>
-            Свойства:
-            <ul>
-              <li><b>name.</b>Имя объекта.</li>
-              <li><b>defaultValue.</b>Начальное содержимое области.</li>
-              <li><b>value.</b>Текущее содержимое области.</li>
-            </ul>
-            Методы:
-            <ul>
-              <li><b>focus( ).</b>Передает области фокус ввода.</li>
-              <li><b>blur( ).</b>Отбирает у области фокус ввода.</li>
-              <li><b>select( ).</b>Выделяет содержимое области.</li>
-            </ul>
-            Пример: <br>
-            <p class="ex">
-              &lt;html&gt;<br>
-              &lt;head&gt;<br>
-              &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;<br>
-             &lt;script&gt;<br>
-             var OK="Тетя Эльза чувствует себя хорошо.\nЮстас.";<br>
-             var Problem="Тетя Эльза заболела.\nЮстас.";<br>
-             function getDate(){<br>
-             var today=new Date();<br>
-             return today.toLocaleString()+"\n";}<br>
-             function CheckRadio(form,value){<br>
-            if(value=="Good")<br>
-                form.Letter.value=getDate()+OK;<br>
-            else<br>
-                form.Letter.value=getDate()+Problem;}<br>
-           &lt;/script&gt;<br>
-           &lt;/head&gt;<br>
-           &lt;body lang=RU&gt;<br>
-           &lt;H1&gt;Отправьте телеграмму&lt;/H1&gt;<br>
-           &lt;FORM NAME="Sel2"&gt;<br>
-           &lt;label&gt;&lt;INPUT TYPE="radio" NAME="Code" VALUE="Good" onClick="if(this.checked) CheckRadio(this.form,this.value);"&gt; Явка в норме<br>
-           &lt;/label&gt; &lt;BR&gt;<br>
-           &lt;label&gt;&lt;INPUT TYPE="radio" NAME="Code" VALUE="Bad" onClick="if(this.checked) CheckRadio(this.form,this.value);"&gt; Явка провалена<br>
-           &lt;/label&gt;<br>
-           &lt;TEXTAREA NAME="Letter" ROWS=3 COLS=35&gt;<br>
-           &lt;/TEXTAREA&gt;<br>
-           &lt;INPUT TYPE="button" VALUE="Готово" onClick="alert(document.Sel2.Letter.value);"&gt;<br>
-           &lt;INPUT TYPE="reset" VALUE="Сброс"&gt;<br>
-           &lt;/FORM&gt;<br>
-           &lt;/body&gt;<br>
-           &lt;/html&gt;<br>
-            </p>
-            <a href="example/example7.html"><button>Пример №7</button></a>
-            <p>Для установки курсора в определенное место textarea-области используйте следующую кросбраузерную функцию:</p>
-            <p class="ex">
-              &lt;form&gt;<br>
-              &lt;textarea id="textArea">Это тестовая область&lt;/textarea&gt;<br>
-              &lt;input type="button" onclick="setCaretPosition('textArea', 5);" value="Установить курсор"&gt;<br>
-              &lt;/form&gt;<br>
-              &lt;script&gt;<br>
-              function setCaretPosition(o, pos) {<br>
-              o=document.getElementById(o);<br>
-              if(o.setSelectionRange) {<br>
-              o.focus();<br>
-              o.setSelectionRange(pos,pos);}<br>
-              else if (o.createTextRange) {<br>
-              var range = o.createTextRange();<br>
-              range.collapse(true);<br>
-              range.moveEnd('character', pos);<br>
-              range.moveStart('character', pos);<br>
-              range.select();}}<br>
-              &lt;/script&gt;<br>
-            </p>
-            <a href="example/example8.html"><button>Пример №8</button></a>
-
-            <h3 align="center" id="9">Поле ввода пароля (PASSWORD)</h3>
-            Свойства:
-            <ul>
-              <li><b>name.</b>Имя объекта.</li>
-              <li><b>defaultValue.</b> Начальное содержимое поля.</li>
-              <li><b>value.</b>Текущее содержимое поля.</li>
-            </ul>
-            Методы:
-            <ul>
-              <li><b>focus( ).</b>Передает полю фокус ввода.</li>
-              <li><b>blur( ).</b>Отбирает у поля фокус ввода.</li>
-              <li><b>select( ).</b>Выделяет содержимое поля.</li>
-            </ul>
-            Пример: <br>
-            <p class="ex">
-                &lt;html&gt;<br>
-                &lt;head&gt;<br>
-                &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
-                &lt;script&gt;<br>
-                function Complete1(){<br>
-             if(document.Sel3.Pwd.value==document.Sel3.Pwd1.value)<br>
-                alert("Вас зарегистрировали\nID="+document.Sel3.Id.value+"\nPassword="+document.Sel3.Pwd.value);<br>
-            else<br>
-                alert("Ошибка при вводе пароля\nПопробуйте еще раз");}<br>
-             &lt;/script&gt;<br>
-             &lt;/head&gt;><br>
-             &lt;body&gt;<br>
-             &lt;H1&gt;Регистрация&lt;/H1&gt;<br>
-             &lt;FORM NAME="Sel3"&gt;<br>
-             &lt;TABLE&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B>Идентификатор:&lt;B&gt;&lt;/TD&gt;<br>
-            &lt;TD&gt;&lt;INPUT NAME="Id" SIZE=20 onBlur="this.value=this.value.toUpperCase()"&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Пароль:&lt;B&gt;&lt;/TD&gt;<br>
-            &lt;TD&gt;&lt;INPUT TYPE="password" NAME="Pwd" SIZE=20 onFocus="this.select();">&lt;/TD&gt;&lt;/TR&gt;<br>
-        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Проверка пароля:&lt;B&gt;&lt;/TD&gt;<br>
-            &lt;TD&gt;&lt;INPUT TYPE="password" NAME="Pwd1" SIZE=20 onFocus="this.select();"&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
-             &lt;/TABLE&gt;<br>
-            &lt;INPUT TYPE="button" VALUE="Готово" onClick="Complete1();"&gt;<br>
-            &lt;INPUT TYPE="reset" VALUE="Сброс"&gt;<br>
-            &lt;/FORM&gt;<br>
-            &lt;/body&gt;<br>
-            &lt;/html&gt;<br>
-            </p>
-            <a href="example/example9.html"><button>Пример №9</button></a>
-            <hr>
-            <h1 align="center" id="10">ПРАКТИКА</h1>
-            <hr>
-            <h2 align="center">Задание к лабораторной работе №3:</h2>
-            <ol>
-              <li>Написать программу-калькулятор, которая позволит пользователю передать два числа и указать арифметическую операцию, выполняемую над ними.</li>
-              <li>В левом верхнем углу экрана – список из пяти цветов. В правом верхнем углу – черный квадрат. Цвет квадрата можно поменять, используя список.</li>
-            </ol>
-
-            <h2 align="center">Отчет по лабораторной работе должен содержать:</h2>
-            <p>В электронном варианте представить все файлы с проектами созданные в работе.
-              Проилюстрировать преподавателю функционирование проектов по всем пунктам задания лабораторной работы.</p>
-
-    </div>
-    </div>
-    <div class="container">
-     <div class="footer">
-     <div class="organization">Dnipro National University | Laboratory Workshop &copy; 2020
-     </div>
-     <div class="author"> Designed by Andriy Demchenko
-     </div>
     </div>
   </div>
+</div>
+</header>
 
-  </body>
+<div class="container_color">
+  <div class="indentation">
+    
+    <h1 align="center">Лабораторная работа №3</h1>    
+    <h2 align="center">Тема: Объект Form</h2>
+    <h2 align="center">Цель: изучить основные элементы, методы и свойства объекта Form</h2> <br>
+    <h2 align="center" id="1">Объект Form</h2>
+
+    <p>Сейчас мы поговорим о различных приемах работы сценариев JavaScript с HTML-формами.
+    Если в HTML-документе определена форма, то она доступна сценарию JavaScript как объект, входящий в объект document с именем, заданным атрибутом NAME тега FORM.</p>
+    <h2 align="center" id="2">Свойства Form</h2>
+    <p>Форма имеет два набора свойств, состав одного из которых фиксированный, а состав другого зависит от того, какие элементы определены в форме.</p>
+    Свойства первого набора <br>
+    <ul>
+      <li><b>action.</b>Значение атрибута ACTION тега FORM.</li>
+      <li><b>encoding.</b> Значение атрибута ENCTYPE тега FORM.</li>
+      <li><b>method.</b>Значение атрибута METHOD тега FORM.</li>
+      <li><b>target.</b>Значение атрибута TARGET тега FORM.</li>
+      <li><b>elements.</b>Массив всех элементов формы.</li>
+      <li><b>length.</b>Размер массива elements.</li>
+    </ul>
+    <p>Большинство свойств первого набора просто отражает значение соответствующих атрибутов тега FORM. Что же касается массива elements, то в нем находятся объекты, соответствующие элементам, определенным в форме. Эти объекты образуют второй набор свойств формы. Адресоваться к этим объектам можно как к элементам массива elements, причем первому элементу формы будет соответствовать элемент с индексом 0, второму - с индексом 1 и т.д. Однако удобнее обращаться к элементам формы по их именам, заданным атрибутом NAME.</p>
+
+    <h2 align="center">Элементы Form</h2>
+    <h3 align="center" id="3">Кнопки (BUTTON, RESET, SUBMIT)</h3>
+    Свойства:
+    <ul>
+      <li><b>name.</b>Имя объекта.</li>
+      <li><b>value.</b>Надпись на кнопке.</li>
+    </ul>
+    Метод:
+    <ul>
+      <li><b>click( ).</b>Вызов этого метода тождественен щелчку мышкой по кнопке.</li>
+    </ul>
+    Пример: <br>
+    <p class="ex">
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
+      &lt;script&gt;<br>
+      function btnClick(){<br>
+      var Txt1 = "";<br>
+      var Txt2 = "";<br>
+      Txt1 = document.Test.bt.value;<br>
+      Txt2 = document.Test.bt.name;<br>
+      document.getElementById('ex1').innerHTML="&lt;HR&gt;"+
+      "Вы нажали кнопку: " + Txt1.bold() +
+      " с именем: "  + Txt2.bold() +"&lt;HR&gt;";}<br>
+      &lt;/script&gt;<br>
+      &lt;/head&gt;<br>
+      &lt;body&gt;<br>
+      &lt;H1>Нажатие кнопки&lt;/H1&gt;<br>
+      &lt;div id="ex1">&lt;/div&gt;<br>
+      &lt;FORM NAME="Test"&gt;<br>
+      &lt;INPUT TYPE="button" NAME="bt" VALUE="Щелкни здесь!" onClick="btnClick();"&gt;<br>
+      &lt;/FORM&gt;<br>
+      &lt;/body&gt;<br>
+      &lt;/html&gt;<br>
+    </p>
+    <a href="example/example1.html"><button>Пример №1</button></a>
+
+    <h3 align="center" id="4">Флажок (CHECKBOX)</h3>
+    Свойства:
+    <ul>
+      <li><b>name.</b>Имя объекта.</li>
+      <li><b>value.</b>Надпись на кнопке.</li>
+      <li><b>checked.</b>Состояние флажка: true - флажок установлен, false - флажок не установлен.</li>
+      <li><b>defaultChecked.</b>Отражает наличие атрибута CHECKED: true - есть, false - нет.</li>
+    </ul>
+    Метод:
+    <ul>
+      <li><b>click( ).</b>Вызов этого метода меняет состояние флажка.</li>
+    </ul>
+    Пример: <br>
+    <p class="ex">
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
+      &lt;/head&gt;<br>
+      &lt;body&gt;<br>
+      &lt;H1&gt;Метод click флажка&lt;/H1&gt;<br>
+      &lt;FORM NAME="Test"&gt;<br>
+      Флажок &lt;INPUT TYPE="checkbox" NAME="ch"&gt;<br>
+      &lt;BR&gt;Состояние флажка можно изменить и этой кнопкой<br>
+      &lt;INPUT TYPE="button" VALUE="Смена состояния" onClick="document.Test.ch.click();"&gt;<br>
+      &lt;/FORM&gt;<br>
+      &lt;/body&gt;<br>
+      &lt;/html&gt;<br>
+    </p>
+    <a href="example/example2.html"><button>Пример №2</button></a>
+
+    <h3 align="center" id="5">Переключатель (RADIO)</h3>
+    Свойства:
+    <ul>
+      <li><b>name.</b>Имя объекта.</li>
+      <li><b>value.</b>Надпись на кнопке.</li>
+      <li><b>length.</b>Количество переключателей в группе.</li>
+      <li><b>checked.</b>Состояние флажка: true - флажок установлен, false - флажок не установлен.</li>
+      <li><b>defaultChecked.</b>Отражает наличие атрибута CHECKED: true - есть, false - нет.</li>
+    </ul>
+    Метод:
+    <ul>
+      <li><b>click( ).</b>Вызов этого метода включает переключатель.</li>
+    </ul>
+    <p>Так как группа переключателей имеет одно имя NAME, то к переключателям надо адресоваться как к элементам массива.</p>
+    Пример: <br>
+    <p class="ex">
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &lt;meta http-equiv="Content-Type"  content="text/html; charset=utf-8"&gt;<br>
+      &lt;script&gt;<br>
+      function btnClick(){<br>
+      if(document.Test1.Sex[0].checked){<br>
+      document.Test1.Sex[1].click();<br>
+    }else{<br>
+    document.Test1.Sex[0].click();}}<br>
+    &lt;/script&gt;<br>
+    &lt;/head&gt;<br>
+    &lt;body&gt;<br>
+    &lt;H1&gt;Метод click группы переключателей&lt;/H1&gt;<br>
+    &lt;FORM NAME="Test1"&gt;<br>
+    &lt;INPUT TYPE="RADIO"  NAME="Sex" VALUE ="Man" CHECKED&gt;Мужской<br>
+    &lt;INPUT TYPE="RADIO"  NAME="Sex" VALUE ="Woman"&gt;Женский<br>
+    &lt;BR&gt;Состояние переключателей можно изменить и этой кнопкой<br>
+    &lt;INPUT TYPE="button" VALUE="Смена состояния" onClick="btnClick();"&gt;<br>
+    &lt;/FORM&gt;<br>
+    &lt;/body&gt;<br>
+    &lt;/html&gt;<br>
+  </p>
+  <a href="example/example3.html"><button>Пример №3</button></a>
+
+  <h3 align="center" id="6">Список (SELECT)</h3>
+  Свойства:
+  <ul>
+    <li><b>name.</b>Имя объекта.</li>
+    <li><b>selectedIndex.</b>Номер выбранного элемента или первого среди выбранных (если указан атрибут MULTIPLE).</li>
+    <li><b>length.</b>Количество элементов (строк) в списке.</li>
+    <li><b>options.</b>Массив элементов списка, заданных тегами OPTION.</li>
+  </ul>
+  Каждый элемент массива options является объектом со следующими свойствами: <br>
+  <ul>
+    <li><b>value.</b>Значение атрибута VALUE.</li>
+    <li><b>text.</b>Текст, указанный после тега OPTION.</li>
+    <li><b>index.</b>Индекс элемента списка.</li>
+    <li><b>selected.</b>Присвоив этому свойству значение true, можно выбрать данный элемент.</li>
+    <li><b>defaultSelected.</b>Отражает наличие атрибута SELECTED: true - есть, false - нет.</li>
+  </ul>
+  Методы:
+  <ul>
+    <li><b>focus( ).</b>Передает списку фокус ввода.</li>
+    <li><b>blur( ).</b>Отбирает у списка фокус ввода.</li>
+  </ul>
+  Пример: <br>
+  <p class="ex">
+    &lt;html&gt;<br>
+    &lt;head&gt;<br>
+    &lt;meta http-equiv=Content-Type content="text/html;charset=utf-8"&gt;<br>
+    &lt;script&gt;<br>
+    function btnClick2(){<br>
+    var sI=document.Test2.Item.selectedIndex;<br>
+    var Txt="";<br>
+    Txt="Предложено "+document.Test2.Item.length+" напитков"+<br>
+    "\nВыбран "+document.Test2.Item.options[sI].text+<br>
+    " (value= "+document.Test2.Item.options[sI].value+<br>
+    ", index= "+document.Test2.Item.options[sI].index+")";<br>
+    if(document.Test2.Item.options[sI].defaultSelected)<br>
+    {Txt+="\nЭтот напиток выбирается по умолчанию";}<br>
+    alert(Txt);}<br>
+    &lt;/script&gt;<br>
+    &lt;/head&gt;<br>
+    &lt;body&gt;<br>
+    &lt;H1&gt;Работа с готовым списком&lt;/H1&gt;<br>
+    &lt;FORM NAME="Test2"&gt;<br>
+    &lt;SELECT NAME="Item" SIZE=5&gt;<br>
+    &lt;OPTION VALUE="tea" SELECTED&gt;Чай<br>
+    &lt;OPTION VALUE ="coffee"&gt;Кофе<br>
+    &lt;OPTION VALUE ="milk"&gt;Молоко<br>
+    &lt;OPTION VALUE ="cocoa"&gt;Какао<br>
+    &lt;OPTION VALUE ="juice"&gt;Сок<br>
+    &lt;/SELECT&gt;<br>
+    &lt;INPUT TYPE="button" VALUE="Пусть кофе" onClick="Test2.Item.options[1].selected=true;"&gt;<br>
+    &lt;INPUT TYPE="button" VALUE="Посмотрим" onClick="btnClick2();"&gt;<br>
+    &lt;/FORM&gt;<br>
+    &lt;/body&gt;<br>
+    &lt;/html&gt;<br>
+  </p>
+  <a href="example/example4.html"><button>Пример №4</button></a>
+  <p>Кроме работы с готовыми списками JavaScript может заполнять список динамически.
+    Для записи нового элемента списка используется конструктор Option c четырьмя параметрами, первый из которых задает текст, отображаемый в списке,
+  второй - значение элемента списка, соответствующее значению атрибута VALUE, третий соответствует свойству defaultSelected, четвертый - свойству selected.</p>
+  Пример: <br>
+  <p class="ex">
+    &lt;html&gt;<br>
+    &lt;head&gt;<br>
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
+    &lt;/head&gt;<br>
+    &lt;body&gt;<br>
+    &lt;H1&gt;Динамическое заполнение списка&lt;/H1&gt;<br>
+    &lt;FORM NAME="Sel"&gt;<br>
+    &lt;SELECT NAME="ListOfLinks"&gt;<br>
+    &lt;/SELECT&gt;<br>
+    &lt;INPUT TYPE="button" VALUE="Переход" onClick="window.location.href=document.links[Sel.ListOfLinks.selectedIndex];"&gt;<br>
+    &lt;/FORM&gt;<br>
+    &lt;A HREF="https://www.youtube.com/"&gt;&lt;/A&gt;<br>
+    &lt;A HREF="https://www.google.com.ua/"&gt;&lt;/A&gt;<br>
+    &lt;A HREF="https://mail.google.com/"&gt;&lt;/A&gt;<br>
+    &lt;A HREF="https://www.apple.com/"&gt;&lt;/A&gt;<br>
+    &lt;script&gt;<br>
+    for(i=0; i&lt;document.links.length; i++)<br>
+    {document.Sel.ListOfLinks.options[i] = new Option(document.links[i], i, false, false);}<br>
+    document.Sel.ListOfLinks.selectedIndex = 0;<br>
+    &lt;/script&gt;<br>
+    &lt;/body&gt;<br>
+    &lt;/html&gt;<br>
+  </p>
+  <a href="example/example5.html"><button>Пример №5</button></a>
+
+  <h3 align="center" id="7">Поле ввода (TEXT)</h3>
+  Свойства:
+  <ul>
+    <li><b>name.</b>Имя объекта.</li>
+    <li><b>defaultValue.</b>Начальное содержимое поля.</li>
+    <li><b>value.</b>Текущее содержимое поля.</li>
+  </ul>
+  Методы:
+  <ul>
+    <li><b>focus( ).</b>Передает полю фокус ввода.</li>
+    <li><b>blur( ).</b>Отбирает у поля фокус ввода.</li>
+    <li><b>select( ).</b> Выделяет содержимое поля.</li>
+  </ul>
+  Пример: <br>
+  <p class="ex">
+    &lt;html&gt;<br>
+    &lt;head&gt;<br>
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
+    &lt;script&gt;<br>
+    function Complete(){<br>
+    var Elem="Фамилия: " + document.Sel1.Family.value +<br>
+    "\nИмя: " + document.Sel1.Name.value +<br>
+    "\nВозраст: " + document.Sel1.Age.value +<br>
+    "\nТелефон: " + document.Sel1.Phone.value;<br>
+    alert(Elem);}<br>
+    function CheckAge(age){<br>
+    if(age&lt;18)<br>
+    return "18";<br>
+    else<br>
+    return  age;}<br>
+    &lt;/script&gt;<br>
+    &lt;/head&gt;<br>
+    &lt;body&gt;<br>
+    &lt;H1&gt;Заполните анкету&lt;/H1&gt;<br>
+    &lt;FORM NAME="Sel1"&gt;<br>
+    &lt;TABLE&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Фамилия:&lt;B>&lt;/TD&gt;<br>
+    &lt;TD&gt;&lt;INPUT NAME="Family" SIZE=20<br>
+    onBlur="this.value=this.value.toUpperCase()">&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Имя:&lt;B&gt;&lt;/TD&gt;<br>
+    &lt;TD&gt;&lt;INPUT NAME="Name" SIZE=20<br>
+    onBlur="this.value=this.value.toUpperCase()"&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Возраст:&lt;B&gt;&lt;/TD&gt;<br>
+    &lt;TD>&lt;INPUT NAME="Age" SIZE=3 VALUE="18"<br>
+    onBlur="this.value=CheckAge(this.value)"<br>
+    onFocus="this.select()">&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Телефон:&lt;B&gt;&lt;/TD&gt;<br>
+    &lt;TD&gt;&lt;INPUT NAME="Phone" SIZE=10&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;/TABLE&gt;<br>
+    &lt;INPUT TYPE="button" VALUE="Готово" onClick="Complete();"&gt;<br>
+    &lt;INPUT TYPE="reset" VALUE="Сброс"&gt;<br>
+    &lt;/FORM&gt;<br>
+    &lt;/body&gt;<br>
+    &lt;/html&gt;<br>
+  </p>
+  <a href="example/example6.html"><button>Пример №6</button></a>
+  <p>Обратите внимание на то, что символы фамилии и имени при потере фокуса соответствующими полями преобразуются в прописные.
+  Для этого используется метод toUpperCase, определенный во встроенном классе строк.</p>
+
+  <h3 align="center" id="8">Текстовая область (TEXTAREA)</h3>
+  Свойства:
+  <ul>
+    <li><b>name.</b>Имя объекта.</li>
+    <li><b>defaultValue.</b>Начальное содержимое области.</li>
+    <li><b>value.</b>Текущее содержимое области.</li>
+  </ul>
+  Методы:
+  <ul>
+    <li><b>focus( ).</b>Передает области фокус ввода.</li>
+    <li><b>blur( ).</b>Отбирает у области фокус ввода.</li>
+    <li><b>select( ).</b>Выделяет содержимое области.</li>
+  </ul>
+  Пример: <br>
+  <p class="ex">
+    &lt;html&gt;<br>
+    &lt;head&gt;<br>
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;<br>
+    &lt;script&gt;<br>
+    var OK="Тетя Эльза чувствует себя хорошо.\nЮстас.";<br>
+    var Problem="Тетя Эльза заболела.\nЮстас.";<br>
+    function getDate(){<br>
+    var today=new Date();<br>
+    return today.toLocaleString()+"\n";}<br>
+    function CheckRadio(form,value){<br>
+    if(value=="Good")<br>
+    form.Letter.value=getDate()+OK;<br>
+    else<br>
+    form.Letter.value=getDate()+Problem;}<br>
+    &lt;/script&gt;<br>
+    &lt;/head&gt;<br>
+    &lt;body lang=RU&gt;<br>
+    &lt;H1&gt;Отправьте телеграмму&lt;/H1&gt;<br>
+    &lt;FORM NAME="Sel2"&gt;<br>
+    &lt;label&gt;&lt;INPUT TYPE="radio" NAME="Code" VALUE="Good" onClick="if(this.checked) CheckRadio(this.form,this.value);"&gt; Явка в норме<br>
+    &lt;/label&gt; &lt;BR&gt;<br>
+    &lt;label&gt;&lt;INPUT TYPE="radio" NAME="Code" VALUE="Bad" onClick="if(this.checked) CheckRadio(this.form,this.value);"&gt; Явка провалена<br>
+    &lt;/label&gt;<br>
+    &lt;TEXTAREA NAME="Letter" ROWS=3 COLS=35&gt;<br>
+    &lt;/TEXTAREA&gt;<br>
+    &lt;INPUT TYPE="button" VALUE="Готово" onClick="alert(document.Sel2.Letter.value);"&gt;<br>
+    &lt;INPUT TYPE="reset" VALUE="Сброс"&gt;<br>
+    &lt;/FORM&gt;<br>
+    &lt;/body&gt;<br>
+    &lt;/html&gt;<br>
+  </p>
+  <a href="example/example7.html"><button>Пример №7</button></a>
+  <p>Для установки курсора в определенное место textarea-области используйте следующую кросбраузерную функцию:</p>
+  <p class="ex">
+    &lt;form&gt;<br>
+    &lt;textarea id="textArea">Это тестовая область&lt;/textarea&gt;<br>
+    &lt;input type="button" onclick="setCaretPosition('textArea', 5);" value="Установить курсор"&gt;<br>
+    &lt;/form&gt;<br>
+    &lt;script&gt;<br>
+    function setCaretPosition(o, pos) {<br>
+    o=document.getElementById(o);<br>
+    if(o.setSelectionRange) {<br>
+    o.focus();<br>
+    o.setSelectionRange(pos,pos);}<br>
+    else if (o.createTextRange) {<br>
+    var range = o.createTextRange();<br>
+    range.collapse(true);<br>
+    range.moveEnd('character', pos);<br>
+    range.moveStart('character', pos);<br>
+    range.select();}}<br>
+    &lt;/script&gt;<br>
+  </p>
+  <a href="example/example8.html"><button>Пример №8</button></a>
+
+  <h3 align="center" id="9">Поле ввода пароля (PASSWORD)</h3>
+  Свойства:
+  <ul>
+    <li><b>name.</b>Имя объекта.</li>
+    <li><b>defaultValue.</b> Начальное содержимое поля.</li>
+    <li><b>value.</b>Текущее содержимое поля.</li>
+  </ul>
+  Методы:
+  <ul>
+    <li><b>focus( ).</b>Передает полю фокус ввода.</li>
+    <li><b>blur( ).</b>Отбирает у поля фокус ввода.</li>
+    <li><b>select( ).</b>Выделяет содержимое поля.</li>
+  </ul>
+  Пример: <br>
+  <p class="ex">
+    &lt;html&gt;<br>
+    &lt;head&gt;<br>
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;<br>
+    &lt;script&gt;<br>
+    function Complete1(){<br>
+    if(document.Sel3.Pwd.value==document.Sel3.Pwd1.value)<br>
+    alert("Вас зарегистрировали\nID="+document.Sel3.Id.value+"\nPassword="+document.Sel3.Pwd.value);<br>
+    else<br>
+    alert("Ошибка при вводе пароля\nПопробуйте еще раз");}<br>
+    &lt;/script&gt;<br>
+    &lt;/head&gt;><br>
+    &lt;body&gt;<br>
+    &lt;H1&gt;Регистрация&lt;/H1&gt;<br>
+    &lt;FORM NAME="Sel3"&gt;<br>
+    &lt;TABLE&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B>Идентификатор:&lt;B&gt;&lt;/TD&gt;<br>
+    &lt;TD&gt;&lt;INPUT NAME="Id" SIZE=20 onBlur="this.value=this.value.toUpperCase()"&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Пароль:&lt;B&gt;&lt;/TD&gt;<br>
+    &lt;TD&gt;&lt;INPUT TYPE="password" NAME="Pwd" SIZE=20 onFocus="this.select();">&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;Проверка пароля:&lt;B&gt;&lt;/TD&gt;<br>
+    &lt;TD&gt;&lt;INPUT TYPE="password" NAME="Pwd1" SIZE=20 onFocus="this.select();"&gt;&lt;/TD&gt;&lt;/TR&gt;<br>
+    &lt;/TABLE&gt;<br>
+    &lt;INPUT TYPE="button" VALUE="Готово" onClick="Complete1();"&gt;<br>
+    &lt;INPUT TYPE="reset" VALUE="Сброс"&gt;<br>
+    &lt;/FORM&gt;<br>
+    &lt;/body&gt;<br>
+    &lt;/html&gt;<br>
+  </p>
+  <a href="example/example9.html"><button>Пример №9</button></a>
+  <hr>
+  <h1 align="center" id="10">ПРАКТИКА</h1>
+  <hr>
+  <h2 align="center">Задание к лабораторной работе №3:</h2>
+  <ol>
+    <li>Написать программу-калькулятор, которая позволит пользователю передать два числа и указать арифметическую операцию, выполняемую над ними.</li>
+    <li>В левом верхнем углу экрана – список из пяти цветов. В правом верхнем углу – черный квадрат. Цвет квадрата можно поменять, используя список.</li>
+  </ol>
+
+  <h2 align="center">Отчет по лабораторной работе должен содержать:</h2>
+  <p>В электронном варианте представить все файлы с проектами созданные в работе.
+  Проилюстрировать преподавателю функционирование проектов по всем пунктам задания лабораторной работы.</p>
+
+</div>
+</div>
+<div class="container">
+ <div class="footer">
+  <div class="organization">Dnipro National University | Laboratory Workshop &copy; 2020>
+   </div>
+   <div class="author"> Designed by Andriy Demchenko
+   </div>
+ </div>
+</div>
+
+</body>
 </html>

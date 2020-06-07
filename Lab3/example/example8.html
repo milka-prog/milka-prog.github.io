@@ -2,25 +2,25 @@
 <html lang="ru" dir="ltr">
 <head>
   <form>
-  <textarea id="textArea">Это тестовая область</textarea>
-  <input type="button" onclick="setCaretPosition('textArea', 5);" value="Установить курсор">
-</form>
-<script>
-  function setCaretPosition(o, pos) {
+    <textarea id="textArea">Это тестовая область</textarea>
+    <input type="button" onclick="setCaretPosition('textArea', 5);" value="Установить курсор">
+  </form>
+  <script>
+    function setCaretPosition(o, pos) {
       o=document.getElementById(o);
       if(o.setSelectionRange) {
-          o.focus();
-          o.setSelectionRange(pos,pos);
+        o.focus();
+        o.setSelectionRange(pos,pos);
       }else if (o.createTextRange) { // IE
-          var range = o.createTextRange();
-          range.collapse(true);
-          range.moveEnd('character', pos);
-          range.moveStart('character', pos);
-          range.select();
+        var range = o.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
       }
-  }
+    }
 
-</script>
-<a href="../lab3.html">Вернуться обратно</a>
+  </script>
+  <a href="../lab3.html">Вернуться обратно</a>
 </body>
 </html>
