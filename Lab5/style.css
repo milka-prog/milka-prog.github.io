@@ -1,6 +1,6 @@
 .indentation{
-margin-left: 25px;
-margin-right: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 .img_centre{
   display: block;
@@ -20,13 +20,13 @@ table{
   color: #878787;
 }
 .ex {
-    border: dashed 1px #634F36;
-    background: #fffff5;
-    font-family: "Courier New", Courier, monospace;
-    padding: 7px;
-    font-size: 80%;
-    margin: 0 0 1em;
-    text-indent: 0px;
+  border: dashed 1px #634F36;
+  background: #fffff5;
+  font-family: "Courier New", Courier, monospace;
+  padding: 7px;
+  font-size: 80%;
+  margin: 0 0 1em;
+  text-indent: 0px;
 }
 hr{
   border: none;

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="../source/css/style.css">
-    <title>Лабораторная робота №5</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="header_inner">
-      <div class="container">
-        <div class="header_inner">
-          <div class="dropup">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../source/css/style.css">
+  <title>Лабораторная робота №5</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header_inner">
+        <div class="container">
+          <div class="header_inner">
+            <div class="dropup">
              <button class="dropbtn"><b>Содержание</b></button>
              <div class="dropup-content">
                <a href="#1">Объект Style</a>
@@ -22,187 +22,190 @@
              </div>
            </div>
 
-          <a href="../index.html" title="Главная страница"><div class="logo_link">
-          </div></a>
+           <a href="../index.html" title="Главная страница"><div class="logo_link">
+           </div></a>
 
-          <div class="right_menu">
+           <div class="right_menu">
             <div class="list_lab">
-            <a href="../Lab1/lab1.html"><b>1</b></a>
-            <a href="../Lab2/lab2.html"><b>2</b></a>
-            <a href="../Lab3/lab3.html"><b>3</b></a>
-            <a href="../Lab4/lab4.html"><b>4</b></a>
-            <a href="../Lab5/lab5.html" id="menu_enable"><b>5</b></a>
+              <a href="../Lab1/lab1.html"><b>1</b></a>
+              <a href="../Lab2/lab2.html"><b>2</b></a>
+              <a href="../Lab3/lab3.html"><b>3</b></a>
+              <a href="../Lab4/lab4.html"><b>4</b></a>
+              <a href="../Lab5/lab5.html" id="menu_enable"><b>5</b></a>
+            </div>
+            <a href="../Info/info.html" class="link_img"></a>
           </div>
-          <a href="../Info/info.html" class="link_img"></a>
-          </div>
-          </div>
-
         </div>
+
       </div>
-      </div>
-      </div>
-    </header>
-
-  <div class="container_color">
-    <div class="indentation">
-
-        <h1 align="center" id="1">Объект Style</h1>
-        <p>Объект style, который для большинства элементов страницы поддерживается как свойство, предоставляет большие возможности по манипулированию стилем элементов.
-          Эти возможности такие же, как и доступные при использовании таблиц стилей: можно получать и указывать значения тех же свойств, что и с использованием CSS.</p>
-          <p>Обратите внимание, что свойства, состоящие из 2-х слов и пишущиеся в css-стилях через дефис, в JS записываются слитно, без всяких черточек или нижних подчеркиваний, причем второе слово начинается с заглавной буквы.  Это так называемый "Camel Case", или "горбатый синтаксис", позволяющий визуально отделить друг от друга слова в многосложных конструкциях. Например, css-свойство background-color превратилось в backgroundColor, font-size - в fontSize, а одиночное свойство color так и осталось в виде color. Если бы мы использовали такое свойство, как list-style-type, то должны были бы написать  listStyleType.</p>
-          Например: <br>
-          <p class="ex" id="elem">
-            &lt;script&gt; <br>
-          var elem = document.getElementById("elem");<br>
-          elem.style.backgroundColor = "red";<br>
-          elem.style.fontSize= "2.3em";<br>
-          elem.style.color = "#fff";<br>
-          elem.style.fontWeight= "bold";<br>
-            &lt;/script&gt;<br>
-          </p>
-          Здесь elem предоставляет доступ к элементу страницы со значением атрибута id, равным «elem». <br>
-          <button onclick="Example_1()">Пример №1</button>
-          <button onclick="reload()">Скрыть</button> <br>
-          <script>
-          function reload(){
-          location.reload();}
-          </script>
-          <script>
-          function Example_1(){
-            var elem = document.getElementById("elem");
-            elem.style.backgroundColor = "red";
-            elem.style.fontSize= "2.3em";
-            elem.style.color = "#fff";
-            elem.style.fontWeight= "bold";
-          }
-          </script>
-          <script>
-          </script>
-          <p>При работе со свойствами стиля объекта CSSStyleDeclaration не забывайте, что все значения должны задаваться в виде строк.
-             В таблице стилей или атрибуте style можно написать:</p>
-          <p class="ex" id="elem">
-            position: absolute; <br>
-            font-family: sans-serif; <br>
-            background-color: #ffffff; <br>
-          </p>
-          <p>Чтобы сделать то же самое для элемента e в JavaScript, необходимо заключить все значения в кавычки:</p>
-          <p class="ex" id="elem">
-            e.style.position = "absolute"; <br>
-            e.style.fontFamily = "sans-serif"; <br>
-            e.style.backgroundColor = "#ffffff"; <br>
-          </p>
-          <p>Обратите внимание, что точки с запятыми не входят в строковые значения. Это точки с запятой, употребляемые в синтаксисе языка JavaScript.
-            Точки с запятой, используемые в таблицах стилей CSS, не нужны в строковых значениях, устанавливаемых с помощью JavaScript.</p>
-          <p>Кроме того, помните, что во всех свойствах позиционирования должны быть указаны единицы измерения. То есть:</p>
-          <p class="ex" id="elem">
-            e.style.left = 300; // Неправильно: это число, а не строка <br>
-            e.style.left = "300"; // Неправильно: отсутствуют единицы измерения <br>
-            e.style.left = "300px"; // Правильно <br>
-          </p>
-          <p>Единицы измерения обязательны при установке свойств стиля в JavaScript - так же, как при установке свойств стиля в таблицах стилей.</p>
-          <p>Кроме того, когда CSS-свойство, такое как float, имеет имя, совпадающее с зарезервированным словом языка JavaScript, к этому имени добавляется префикс «css», чтобы создать допустимое имя свойства объекта CSSStyleDeclaration.
-            То есть, чтобы прочитать или изменить значение CSS-свойства float элемента, следует использовать свойство cssFloat объекта CSSStyleDeclaration.</p>
-            <p class="ex" id="elem">
-              elem.style.cssFloat // Верный вариант <br>
-              elem.style.float <br>
-            </p>
-          <p>Чтобы сбросить поставленный стиль, присваивают в style пустую строку:</p>
-          <p class="ex" id="elem">
-            elem.style.background=""; <br>
-          </p>
-          <p>Эту особенность можно использовать, если вам нужно переключаться между какими-то свойствами элемента по событию, например, по клику или по наведению-уведению курсора мыши.
-            В примере ниже при наведении на элемент маркированного списка мы видим изображение слева. При уведении курсора снова отображается маркер, т.е. изображение исчезает.</p>
-            Пример: <br>
-            <p class="ex" id="elem">
-              &lt;ul id="test"&gt; <br>
-              &lt;li&gt;Пункт №1&lt;/li&gt; <br>
-              &lt;li&gt;Пункт №2&lt;/li&gt; <br>
-              &lt;li&gt;Пункт №3&lt;/li&gt; <br>
-              &lt;li&gt;Пункт №4&lt;/li&gt; <br>
-              &lt;li&gt;Пункт №5&lt;/li&gt; <br>
-              &lt;/ul&gt; <br>
-              &lt;script&gt; <br>
-              var ul = document.querySelector("#test"); <br>
-              ul.onmouseover = function(e){ <br>
-              e.target.style.listStyleImage = "url(img/check-icon.png)";} <br>
-              ul.onmouseout = function(e){ <br>
-              e.target.style.listStyleImage = "";} <br>
-              &lt;/script&gt; <br>
-            </p>
-            <a href="example/example1.html"><button>Пример №2</button></a>
-            <p>Важно: писать код на javascript, который манипулирует свойствами html-элементов нужно после того,
-              как они встретятся на странице, иначе у вас будет ошибка в скрипте, т.к. искомый элемент просто не будет найден.
-              Проще всего располагать теги &lt;script&gt; в самом низу  html-документа перед закрывающимся тегом &lt;/body&gt;.</p>
-
-            <h2 align="center" id="2">Свойство style.cssText</h2>
-            <p>Предположим, мы не хотим прописывать в виде нескольких строк целый ряд css-свойств для элемента, тем более,
-              что в итоге они все будут друг за другом перечислены в атрибуте style. Но в свойство style элемента в JavaScript нельзя присвоить строку, состоящую из нескольких свойств,
-              для этого можно использовать свойство style.cssText, которое записывается так:</p>
-              <p class="ex" id="elem">
-              elem.style.cssText = "background: red; color: #fff; padding: 10px;";
-              </p>
-
-            <h2 align="center" id="3">Свойство className</h2>
-            <p>Свойство className предполагает, что вы имеете таблицу стилей, связанную с вашим html-файлом с некоторым количеством классов в ней.
-              Как правило, класс предполагает наличие не 1-2 стилевых свойств, а 4, 5 и более.
-              В плане применения всех свойств форматирование назначение класса намного удобнее и с точки зрения использования JavaScript, и с точки зрения подключения css.</p>
-            <p>Назначить класс для элемента можно, используя свойство className (использовать в JS слово class нельзя, т.к. оно является зарезервированным - аналогично float).</p>
-            <p class="ex" id="elem">
-            elem.className = "red-heart";
-            </p>
-            <p>Чтобы удалить класс, достаточно в это свойство записать пустую строку.</p>
-            <p class="ex" id="elem">
-            elem.className = "";
-            </p>
-            Например: <br>
-            <p class="ex" id="elem">
-              &lt;style&gt;  <br>
-              #myList {cursor: pointer;}<br>
-              .higtlight {<br>
-                background-color: #ddaaff;<br>
-                color: #5533ff;<br>
-                padding: 0 5px;<br>
-                border-bottom: 1px solid  #5533ff;}<br>
-              &lt;/style&gt;<br>
-              &lt;ul id="myList"&gt;И. Демьянов<br>
-                &lt;li&gt;Под самым карнизом,&lt;/li&gt;<br>
-                &lt;li&gt;Над самым оконцем&lt;/li&gt;<br>
-                &lt;li&gt;Забралось в сосульки&lt;/li&gt;<br>
-                &lt;li&gt;Весеннее солнце.&lt;/li&gt;<br>
-                &lt;li&gt;Сверкая, бегут по сосулькам слезинки…&lt;/li&gt;<br>
-               &lt;li&gt;И тают сосульки – веселые льдинки. &lt;/li&gt;<br>
-              &lt;/ul&gt;<br>
-              &lt;script&gt;<br>
-              var ul = document.getElementById("myList");<br>
-              ul.onclick = function(e){<br>
-                 if(e.target.tagName != "UL"){<br>
-                  e.target.className == "higtlight" ? e.target.className = "" : e.target.className = "higtlight";}}<br>
-              &lt;/script&gt;<br>
-            </p>
-            <a href="example/example2.html"><button>Пример №3</button></a>
-            <hr>
-            <h1 align="center" id="4">ПРАКТИКА</h1>
-            <hr>
-            <h2 align="center">Задание к лабораторной работе №3:</h2>
-            <ol>
-              <li>Напишите функцию, которая создаёт уведомление:с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5 секунды.
-              Внешний вид уведомления и его размещение оформите с помощью объекта style</li>
-            </ol>
-
-            <h2 align="center">Отчет по лабораторной работе должен содержать:</h2>
-            <p>В электронном варианте представить все файлы с проектами созданные в работе.
-              Проилюстрировать преподавателю функционирование проектов по всем пунктам задания лабораторной работы.</p>
-
-    </div>
-    </div>
-    <div class="container">
-     <div class="footer">
-     <div class="organization">Dnipro National University | Laboratory Workshop &copy; 2020
-     </div>
-     <div class="author"> Designed by Andriy Demchenko
-     </div>
     </div>
   </div>
+</div>
+</header>
 
-  </body>
+<div class="container_color">
+  <div class="indentation">
+
+
+     <h1 align="center">Лабораторная работа №5</h1>    
+     <h2 align="center">Тема: Объект Style</h2>
+     <h2 align="center">Цель: изучить свойства объекта Style</h2> <br>
+     <h2 align="center" id="1">Объект Style</h2>
+    <p>Объект style, который для большинства элементов страницы поддерживается как свойство, предоставляет большие возможности по манипулированию стилем элементов.
+    Эти возможности такие же, как и доступные при использовании таблиц стилей: можно получать и указывать значения тех же свойств, что и с использованием CSS.</p>
+    <p>Обратите внимание, что свойства, состоящие из 2-х слов и пишущиеся в css-стилях через дефис, в JS записываются слитно, без всяких черточек или нижних подчеркиваний, причем второе слово начинается с заглавной буквы.  Это так называемый "Camel Case", или "горбатый синтаксис", позволяющий визуально отделить друг от друга слова в многосложных конструкциях. Например, css-свойство background-color превратилось в backgroundColor, font-size - в fontSize, а одиночное свойство color так и осталось в виде color. Если бы мы использовали такое свойство, как list-style-type, то должны были бы написать  listStyleType.</p>
+    Например: <br>
+    <p class="ex" id="elem">
+      &lt;script&gt; <br>
+      var elem = document.getElementById("elem");<br>
+      elem.style.backgroundColor = "red";<br>
+      elem.style.fontSize= "2.3em";<br>
+      elem.style.color = "#fff";<br>
+      elem.style.fontWeight= "bold";<br>
+      &lt;/script&gt;<br>
+    </p>
+    Здесь elem предоставляет доступ к элементу страницы со значением атрибута id, равным «elem». <br>
+    <button onclick="Example_1()">Пример №1</button>
+    <button onclick="reload()">Скрыть</button> <br>
+    <script>
+      function reload(){
+        location.reload();}
+      </script>
+      <script>
+        function Example_1(){
+          var elem = document.getElementById("elem");
+          elem.style.backgroundColor = "red";
+          elem.style.fontSize= "2.3em";
+          elem.style.color = "#fff";
+          elem.style.fontWeight= "bold";
+        }
+      </script>
+      <script>
+      </script>
+      <p>При работе со свойствами стиля объекта CSSStyleDeclaration не забывайте, что все значения должны задаваться в виде строк.
+      В таблице стилей или атрибуте style можно написать:</p>
+      <p class="ex" id="elem">
+        position: absolute; <br>
+        font-family: sans-serif; <br>
+        background-color: #ffffff; <br>
+      </p>
+      <p>Чтобы сделать то же самое для элемента e в JavaScript, необходимо заключить все значения в кавычки:</p>
+      <p class="ex" id="elem">
+        e.style.position = "absolute"; <br>
+        e.style.fontFamily = "sans-serif"; <br>
+        e.style.backgroundColor = "#ffffff"; <br>
+      </p>
+      <p>Обратите внимание, что точки с запятыми не входят в строковые значения. Это точки с запятой, употребляемые в синтаксисе языка JavaScript.
+      Точки с запятой, используемые в таблицах стилей CSS, не нужны в строковых значениях, устанавливаемых с помощью JavaScript.</p>
+      <p>Кроме того, помните, что во всех свойствах позиционирования должны быть указаны единицы измерения. То есть:</p>
+      <p class="ex" id="elem">
+        e.style.left = 300; // Неправильно: это число, а не строка <br>
+        e.style.left = "300"; // Неправильно: отсутствуют единицы измерения <br>
+        e.style.left = "300px"; // Правильно <br>
+      </p>
+      <p>Единицы измерения обязательны при установке свойств стиля в JavaScript - так же, как при установке свойств стиля в таблицах стилей.</p>
+      <p>Кроме того, когда CSS-свойство, такое как float, имеет имя, совпадающее с зарезервированным словом языка JavaScript, к этому имени добавляется префикс «css», чтобы создать допустимое имя свойства объекта CSSStyleDeclaration.
+      То есть, чтобы прочитать или изменить значение CSS-свойства float элемента, следует использовать свойство cssFloat объекта CSSStyleDeclaration.</p>
+      <p class="ex" id="elem">
+        elem.style.cssFloat // Верный вариант <br>
+        elem.style.float <br>
+      </p>
+      <p>Чтобы сбросить поставленный стиль, присваивают в style пустую строку:</p>
+      <p class="ex" id="elem">
+        elem.style.background=""; <br>
+      </p>
+      <p>Эту особенность можно использовать, если вам нужно переключаться между какими-то свойствами элемента по событию, например, по клику или по наведению-уведению курсора мыши.
+      В примере ниже при наведении на элемент маркированного списка мы видим изображение слева. При уведении курсора снова отображается маркер, т.е. изображение исчезает.</p>
+      Пример: <br>
+      <p class="ex" id="elem">
+        &lt;ul id="test"&gt; <br>
+        &lt;li&gt;Пункт №1&lt;/li&gt; <br>
+        &lt;li&gt;Пункт №2&lt;/li&gt; <br>
+        &lt;li&gt;Пункт №3&lt;/li&gt; <br>
+        &lt;li&gt;Пункт №4&lt;/li&gt; <br>
+        &lt;li&gt;Пункт №5&lt;/li&gt; <br>
+        &lt;/ul&gt; <br>
+        &lt;script&gt; <br>
+        var ul = document.querySelector("#test"); <br>
+        ul.onmouseover = function(e){ <br>
+        e.target.style.listStyleImage = "url(img/check-icon.png)";} <br>
+        ul.onmouseout = function(e){ <br>
+        e.target.style.listStyleImage = "";} <br>
+        &lt;/script&gt; <br>
+      </p>
+      <a href="example/example1.html"><button>Пример №2</button></a>
+      <p>Важно: писать код на javascript, который манипулирует свойствами html-элементов нужно после того,
+        как они встретятся на странице, иначе у вас будет ошибка в скрипте, т.к. искомый элемент просто не будет найден.
+      Проще всего располагать теги &lt;script&gt; в самом низу  html-документа перед закрывающимся тегом &lt;/body&gt;.</p>
+
+      <h2 align="center" id="2">Свойство style.cssText</h2>
+      <p>Предположим, мы не хотим прописывать в виде нескольких строк целый ряд css-свойств для элемента, тем более,
+        что в итоге они все будут друг за другом перечислены в атрибуте style. Но в свойство style элемента в JavaScript нельзя присвоить строку, состоящую из нескольких свойств,
+      для этого можно использовать свойство style.cssText, которое записывается так:</p>
+      <p class="ex" id="elem">
+        elem.style.cssText = "background: red; color: #fff; padding: 10px;";
+      </p>
+
+      <h2 align="center" id="3">Свойство className</h2>
+      <p>Свойство className предполагает, что вы имеете таблицу стилей, связанную с вашим html-файлом с некоторым количеством классов в ней.
+        Как правило, класс предполагает наличие не 1-2 стилевых свойств, а 4, 5 и более.
+      В плане применения всех свойств форматирование назначение класса намного удобнее и с точки зрения использования JavaScript, и с точки зрения подключения css.</p>
+      <p>Назначить класс для элемента можно, используя свойство className (использовать в JS слово class нельзя, т.к. оно является зарезервированным - аналогично float).</p>
+      <p class="ex" id="elem">
+        elem.className = "red-heart";
+      </p>
+      <p>Чтобы удалить класс, достаточно в это свойство записать пустую строку.</p>
+      <p class="ex" id="elem">
+        elem.className = "";
+      </p>
+      Например: <br>
+      <p class="ex" id="elem">
+        &lt;style&gt;  <br>
+        #myList {cursor: pointer;}<br>
+        .higtlight {<br>
+        background-color: #ddaaff;<br>
+        color: #5533ff;<br>
+        padding: 0 5px;<br>
+        border-bottom: 1px solid  #5533ff;}<br>
+        &lt;/style&gt;<br>
+        &lt;ul id="myList"&gt;И. Демьянов<br>
+        &lt;li&gt;Под самым карнизом,&lt;/li&gt;<br>
+        &lt;li&gt;Над самым оконцем&lt;/li&gt;<br>
+        &lt;li&gt;Забралось в сосульки&lt;/li&gt;<br>
+        &lt;li&gt;Весеннее солнце.&lt;/li&gt;<br>
+        &lt;li&gt;Сверкая, бегут по сосулькам слезинки…&lt;/li&gt;<br>
+        &lt;li&gt;И тают сосульки – веселые льдинки. &lt;/li&gt;<br>
+        &lt;/ul&gt;<br>
+        &lt;script&gt;<br>
+        var ul = document.getElementById("myList");<br>
+        ul.onclick = function(e){<br>
+        if(e.target.tagName != "UL"){<br>
+        e.target.className == "higtlight" ? e.target.className = "" : e.target.className = "higtlight";}}<br>
+        &lt;/script&gt;<br>
+      </p>
+      <a href="example/example2.html"><button>Пример №3</button></a>
+      <hr>
+      <h1 align="center" id="4">ПРАКТИКА</h1>
+      <hr>
+      <h2 align="center">Задание к лабораторной работе №3:</h2>
+      <ol>
+        <li>Напишите функцию, которая создаёт уведомление:с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5 секунды.
+        Внешний вид уведомления и его размещение оформите с помощью объекта style</li>
+      </ol>
+
+      <h2 align="center">Отчет по лабораторной работе должен содержать:</h2>
+      <p>В электронном варианте представить все файлы с проектами созданные в работе.
+      Проилюстрировать преподавателю функционирование проектов по всем пунктам задания лабораторной работы.</p>
+
+    </div>
+  </div>
+  <div class="container">
+   <div class="footer">
+     <div class="organization">Dnipro National University | Laboratory Workshop &copy; 2020>
+     <div class="author"> Designed by Andriy Demchenko
+     </div>
+   </div>
+ </div>
+
+</body>
 </html>
